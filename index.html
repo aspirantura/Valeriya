@@ -83,16 +83,8 @@
             white-space: nowrap;
         }
 
-        .tab-btn:hover {
-            color: #fff;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .tab-btn.active {
-            color: #fff;
-            border-bottom-color: #ffc107;
-            background: rgba(255,255,255,0.1);
-        }
+        .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+        .tab-btn.active { color: #fff; border-bottom-color: #ffc107; background: rgba(255,255,255,0.1); }
 
         .tab-content {
             display: none;
@@ -116,26 +108,9 @@
             margin: 0 auto;
         }
 
-        .page-title h1 {
-            font-size: 28px;
-            color: var(--primary);
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .page-title .subtitle {
-            font-size: 16px;
-            color: var(--text-medium);
-            font-style: italic;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .page-title .info {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-top: 8px;
-        }
+        .page-title h1 { font-size: 28px; color: var(--primary); margin-bottom: 10px; }
+        .page-title .subtitle { font-size: 16px; color: var(--text-medium); font-style: italic; max-width: 850px; margin: 0 auto; }
+        .page-title .info { font-size: 13px; color: var(--text-light); margin-top: 8px; }
 
         .section-title {
             text-align: center;
@@ -150,12 +125,7 @@
 
         .section-title-wrap { text-align: center; margin-bottom: 10px; }
 
-        .flowchart {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 0;
-        }
+        .flowchart { display: flex; flex-direction: column; align-items: center; padding: 20px 0; }
 
         .flow-box {
             border-radius: var(--radius);
@@ -168,58 +138,28 @@
             width: 100%;
         }
 
-        .flow-box:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
-        }
-
-        .flow-box h3 {
-            font-size: 15px;
-            margin-bottom: 6px;
-        }
-
-        .flow-box p, .flow-box ul {
-            font-size: 13px;
-            color: var(--text-medium);
-        }
-
-        .flow-box ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            display: inline-block;
-        }
-
-        .flow-box ul li::before {
-            content: "• ";
-            color: inherit;
-            font-weight: bold;
-        }
+        .flow-box:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .flow-box h3 { font-size: 15px; margin-bottom: 6px; }
+        .flow-box p, .flow-box ul { font-size: 13px; color: var(--text-medium); }
+        .flow-box ul { list-style: none; padding: 0; text-align: left; display: inline-block; }
+        .flow-box ul li::before { content: "• "; color: inherit; font-weight: bold; }
 
         .box-screening { background: var(--screening-bg); border: 2px solid var(--screening); }
         .box-screening h3 { color: var(--screening); }
-
         .box-inclusion { background: var(--inclusion-bg); border: 2px solid var(--inclusion); }
         .box-inclusion h3 { color: var(--inclusion); }
-
         .box-exclusion { background: var(--exclusion-bg); border: 2px solid var(--exclusion); }
         .box-exclusion h3 { color: var(--exclusion); }
-
         .box-group1 { background: var(--group1-bg); border: 2px solid var(--group1); }
         .box-group1 h3 { color: var(--group1); }
-
         .box-group2 { background: var(--group2-bg); border: 2px solid var(--group2); }
         .box-group2 h3 { color: var(--group2); }
-
         .box-group3 { background: var(--group3-bg); border: 2px solid var(--group3); }
         .box-group3 h3 { color: var(--group3); }
-
         .box-timepoint { background: var(--timepoint-bg); border: 2px solid var(--timepoint); }
         .box-timepoint h3 { color: var(--timepoint); }
-
         .box-analysis { background: var(--analysis-bg); border: 2px solid var(--analysis); }
         .box-analysis h3 { color: var(--analysis); }
-
         .box-result { background: var(--result-bg); border: 2px solid var(--result); }
         .box-result h3 { color: var(--result); }
 
@@ -254,106 +194,7 @@
             max-width: 1100px;
         }
 
-        .flow-row .flow-box {
-            flex: 1;
-            min-width: 250px;
-            max-width: 380px;
-        }
-
-        .matrix-table-wrapper {
-            overflow-x: auto;
-            margin: 20px 0;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .matrix-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-            min-width: 800px;
-        }
-
-        .matrix-table th {
-            padding: 12px 10px;
-            font-size: 12px;
-            font-weight: 700;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .matrix-table th.col-header {
-            background: var(--primary);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .matrix-table th.col-header-g1 {
-            background: var(--group1);
-            color: #fff;
-        }
-
-        .matrix-table th.col-header-g2 {
-            background: var(--group2);
-            color: #fff;
-        }
-
-        .matrix-table th.col-header-g3 {
-            background: var(--group3);
-            color: #fff;
-        }
-
-        .matrix-table th.row-header {
-            background: #f5f5f5;
-            color: var(--text-dark);
-            text-align: left;
-            padding-left: 16px;
-            font-weight: 600;
-            border: 1px solid #e0e0e0;
-            min-width: 220px;
-        }
-
-        .matrix-table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .matrix-table tr:hover td { background: #fafafa; }
-
-        .cell-yes { background: #c8e6c9; color: #1b5e20; font-weight: bold; }
-        .cell-no { background: #ffebee; color: #b71c1c; }
-        .cell-optional { background: #fff8e1; color: #f57f17; font-weight: bold; }
-
-        .matrix-legend {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 15px;
-            font-size: 13px;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .legend-dot {
-            width: 26px;
-            height: 26px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 13px;
-        }
+        .flow-row .flow-box { flex: 1; min-width: 250px; max-width: 380px; }
 
         .markers-grid {
             display: grid;
@@ -372,21 +213,9 @@
             border-left: 5px solid;
         }
 
-        .marker-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-3px);
-        }
-
-        .marker-card h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .marker-card p {
-            font-size: 13px;
-            color: var(--text-medium);
-            line-height: 1.55;
-        }
+        .marker-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+        .marker-card h3 { font-size: 16px; margin-bottom: 10px; }
+        .marker-card p { font-size: 13px; color: var(--text-medium); line-height: 1.55; }
 
         .marker-card .tag {
             display: inline-block;
@@ -398,28 +227,13 @@
             margin-right: 4px;
         }
 
-        .group-metabolic {
-            background: var(--metabolic-bg);
-            border-left-color: var(--metabolic);
-        }
+        .group-metabolic { background: var(--metabolic-bg); border-left-color: var(--metabolic); }
         .group-metabolic h3 { color: var(--metabolic); }
-
-        .group-inflammation {
-            background: var(--inflammation-bg);
-            border-left-color: var(--inflammation);
-        }
+        .group-inflammation { background: var(--inflammation-bg); border-left-color: var(--inflammation); }
         .group-inflammation h3 { color: var(--inflammation); }
-
-        .group-oncology {
-            background: var(--oncology-bg);
-            border-left-color: var(--oncology);
-        }
+        .group-oncology { background: var(--oncology-bg); border-left-color: var(--oncology); }
         .group-oncology h3 { color: var(--oncology); }
-
-        .group-hormone {
-            background: var(--hormone-bg);
-            border-left-color: var(--hormone);
-        }
+        .group-hormone { background: var(--hormone-bg); border-left-color: var(--hormone); }
         .group-hormone h3 { color: var(--hormone); }
 
         .stage-card {
@@ -432,10 +246,7 @@
             transition: var(--transition);
         }
 
-        .stage-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateX(5px);
-        }
+        .stage-card:hover { box-shadow: var(--shadow-hover); transform: translateX(5px); }
 
         .stage-card h3 {
             color: var(--primary);
@@ -459,115 +270,10 @@
             font-size: 16px;
         }
 
-        .stage-card p, .stage-card ul {
-            font-size: 13.5px;
-            color: var(--text-medium);
-        }
+        .stage-card p, .stage-card ul { font-size: 13.5px; color: var(--text-medium); }
+        .stage-card ul { margin-left: 50px; margin-top: 8px; }
 
-        .stage-card ul {
-            margin-left: 50px;
-            margin-top: 8px;
-        }
-
-        .gantt-container { overflow-x: auto; margin: 20px 0; }
-
-        .gantt-chart {
-            min-width: 900px;
-            background: #fff;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 30px;
-        }
-
-        .gantt-header {
-            display: grid;
-            grid-template-columns: 250px repeat(36, 1fr);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 8px;
-            margin-bottom: 10px;
-        }
-
-        .gantt-header-cell {
-            font-size: 10px;
-            text-align: center;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .gantt-year-labels {
-            display: grid;
-            grid-template-columns: 250px repeat(3, 1fr);
-            margin-bottom: 5px;
-        }
-
-        .gantt-year {
-            text-align: center;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 8px;
-            border-left: 2px dashed rgba(136,14,79,0.3);
-        }
-
-        .gantt-year:first-child { border-left: none; }
-
-        .gantt-row {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            align-items: center;
-            min-height: 38px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .gantt-row:hover { background: #fafafa; }
-
-        .gantt-label {
-            font-size: 12px;
-            padding: 6px 12px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .gantt-bar-area {
-            position: relative;
-            height: 28px;
-        }
-
-        .gantt-bar {
-            position: absolute;
-            height: 24px;
-            top: 2px;
-            border-radius: 12px;
-            opacity: 0.85;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .gantt-bar:hover {
-            opacity: 1;
-            transform: scaleY(1.15);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .gantt-grid-line {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: rgba(136,14,79,0.1);
-        }
-
-        .gantt-grid-line-year {
-            background: rgba(136,14,79,0.3);
-            width: 2px;
-        }
-
-        .groups-tree {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+        .groups-tree { display: flex; flex-direction: column; align-items: center; padding: 20px; }
 
         .tree-level {
             display: flex;
@@ -587,10 +293,7 @@
             min-width: 220px;
         }
 
-        .tree-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
-        }
+        .tree-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
 
         .tree-connector {
             height: 30px;
@@ -636,10 +339,7 @@
             border-left: 5px solid;
         }
 
-        .stats-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
-        }
+        .stats-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
 
         .stats-card .step-number {
             display: inline-flex;
@@ -662,13 +362,7 @@
             margin-bottom: 10px;
         }
 
-        .stats-card ul {
-            list-style: none;
-            padding: 0;
-            font-size: 13px;
-            color: var(--text-medium);
-        }
-
+        .stats-card ul { list-style: none; padding: 0; font-size: 13px; color: var(--text-medium); }
         .stats-card ul li { padding: 3px 0; }
         .stats-card ul li::before { content: "→ "; font-weight: bold; }
 
@@ -695,11 +389,7 @@
             text-align: center;
         }
 
-        .stats-final h3 {
-            justify-content: center;
-            font-size: 17px;
-            color: var(--result);
-        }
+        .stats-final h3 { justify-content: center; font-size: 17px; color: var(--result); }
 
         .stats-software {
             grid-column: 1 / -1;
@@ -727,23 +417,9 @@
             border-top: 4px solid;
         }
 
-        .info-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-4px) scale(1.02);
-        }
-
-        .info-card .big-number {
-            font-size: 44px;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .info-card .info-label {
-            font-size: 14px;
-            color: var(--text-medium);
-            font-weight: 500;
-        }
+        .info-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px) scale(1.02); }
+        .info-card .big-number { font-size: 44px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+        .info-card .info-label { font-size: 14px; color: var(--text-medium); font-weight: 500; }
 
         .info-card.c1 { border-top-color: #c2185b; }
         .info-card.c1 .big-number { color: #c2185b; }
@@ -767,24 +443,11 @@
             transition: var(--transition);
         }
 
-        .algorithm-card:hover {
-            box-shadow: var(--shadow-hover);
-        }
+        .algorithm-card:hover { box-shadow: var(--shadow-hover); }
 
-        .algorithm-card.low-risk {
-            border-left: 6px solid #2e7d32;
-            background: linear-gradient(to right, #e8f5e9 0%, #fff 30%);
-        }
-
-        .algorithm-card.medium-risk {
-            border-left: 6px solid #f57c00;
-            background: linear-gradient(to right, #fff3e0 0%, #fff 30%);
-        }
-
-        .algorithm-card.high-risk {
-            border-left: 6px solid #c62828;
-            background: linear-gradient(to right, #ffebee 0%, #fff 30%);
-        }
+        .algorithm-card.low-risk { border-left: 6px solid #2e7d32; background: linear-gradient(to right, #e8f5e9 0%, #fff 30%); }
+        .algorithm-card.medium-risk { border-left: 6px solid #f57c00; background: linear-gradient(to right, #fff3e0 0%, #fff 30%); }
+        .algorithm-card.high-risk { border-left: 6px solid #c62828; background: linear-gradient(to right, #ffebee 0%, #fff 30%); }
 
         .algorithm-card h3 {
             font-size: 17px;
@@ -797,11 +460,7 @@
         .algorithm-card.low-risk h3 { color: #2e7d32; }
         .algorithm-card.medium-risk h3 { color: #f57c00; }
         .algorithm-card.high-risk h3 { color: #c62828; }
-
-        .algorithm-card p {
-            font-size: 13.5px;
-            color: var(--text-medium);
-        }
+        .algorithm-card p { font-size: 13.5px; color: var(--text-medium); }
 
         .risk-percent {
             display: inline-block;
@@ -825,14 +484,7 @@
         .text-center { text-align: center; }
         .mt-20 { margin-top: 20px; }
         .mb-20 { margin-bottom: 20px; }
-
-        .note {
-            font-size: 12px;
-            color: var(--text-light);
-            font-style: italic;
-            text-align: center;
-            margin-top: 10px;
-        }
+        .note { font-size: 12px; color: var(--text-light); font-style: italic; text-align: center; margin-top: 10px; }
 
         .badge {
             display: inline-block;
@@ -893,10 +545,433 @@
             z-index: 999;
         }
 
-        .print-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
+        .print-btn:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+        /* ============================================================
+           ИНТЕРАКТИВНАЯ ДИАГРАММА ГАНТА
+           ============================================================ */
+
+        .gantt-controls {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
         }
+
+        .overall-progress-section { margin-bottom: 20px; }
+
+        .overall-progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .overall-progress-percent {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--result);
+        }
+
+        .overall-progress-bar {
+            width: 100%;
+            height: 28px;
+            background: #e0e0e0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .overall-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #66bb6a 0%, #43a047 100%);
+            border-radius: 14px;
+            transition: width 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overall-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                rgba(255,255,255,0.15) 25%, transparent 25%,
+                transparent 50%, rgba(255,255,255,0.15) 50%,
+                rgba(255,255,255,0.15) 75%, transparent 75%);
+            background-size: 30px 30px;
+            animation: progress-stripes 1s linear infinite;
+        }
+
+        @keyframes progress-stripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 30px 0; }
+        }
+
+        .overall-progress-stats {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--text-medium);
+            text-align: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .gantt-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .control-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: #fff;
+        }
+
+        .btn-export { background: #1976d2; }
+        .btn-import { background: #388e3c; }
+        .btn-print { background: #7b1fa2; }
+        .btn-reset { background: #d32f2f; }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .report-date {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .gantt-chart-interactive {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .gantt-row-interactive {
+            display: grid;
+            grid-template-columns: 280px 90px 1fr 90px;
+            align-items: center;
+            min-height: 50px;
+            border-bottom: 1px solid #f0f0f0;
+            gap: 10px;
+            padding: 4px 0;
+            min-width: 900px;
+        }
+
+        .gantt-row-interactive:hover { background: #fafafa; }
+        .gantt-row-interactive.completed { background: linear-gradient(to right, #e8f5e9 0%, transparent 60%); }
+        .gantt-row-interactive.overdue { background: linear-gradient(to right, #ffebee 0%, transparent 60%); }
+
+        .gantt-task-label {
+            font-size: 13px;
+            padding: 6px 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .task-status-icon { font-size: 18px; flex-shrink: 0; }
+
+        .gantt-percent-control {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: center;
+        }
+
+        .percent-input {
+            width: 55px;
+            padding: 6px 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .percent-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(136,14,79,0.1);
+        }
+
+        .percent-input.completed {
+            background: #e8f5e9;
+            color: #1b5e20;
+            border-color: #66bb6a;
+        }
+
+        .percent-symbol {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .gantt-bar-area-int {
+            position: relative;
+            height: 34px;
+            min-width: 400px;
+        }
+
+        .gantt-bar-bg {
+            position: absolute;
+            height: 28px;
+            top: 3px;
+            border-radius: 14px;
+            opacity: 0.3;
+        }
+
+        .gantt-bar-progress {
+            position: absolute;
+            height: 28px;
+            top: 3px;
+            border-radius: 14px;
+            transition: width 0.5s ease, background 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+        }
+
+        .gantt-bar-progress span {
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .gantt-current-date-line {
+            position: absolute;
+            top: -12px;
+            bottom: -12px;
+            width: 3px;
+            background: #c62828;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .gantt-current-date-line::before {
+            content: '📍 Сегодня';
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #c62828;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .gantt-grid-line-int {
+            position: absolute;
+            top: -4px;
+            bottom: -4px;
+            width: 1px;
+            background: rgba(136,14,79,0.08);
+        }
+
+        .gantt-grid-line-year-int {
+            background: rgba(136,14,79,0.25);
+            width: 2px;
+        }
+
+        .gantt-note-btn {
+            background: transparent;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            color: var(--text-medium);
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .gantt-note-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .gantt-note-btn.has-note {
+            background: #fff3e0;
+            border-color: #ff9800;
+            color: #e65100;
+        }
+
+        .gantt-header-int {
+            display: grid;
+            grid-template-columns: 280px 90px 1fr 90px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 12px;
+            min-width: 900px;
+        }
+
+        .gantt-year-labels-int {
+            display: grid;
+            grid-template-columns: 280px 90px 1fr 90px;
+            margin-bottom: 5px;
+            gap: 10px;
+            min-width: 900px;
+        }
+
+        .gantt-year-int {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            padding: 6px;
+            border-left: 2px dashed rgba(136,14,79,0.3);
+        }
+
+        .gantt-year-int:first-child { border-left: none; }
+
+        .gantt-months-row {
+            display: grid;
+            grid-template-columns: repeat(36, 1fr);
+        }
+
+        .gantt-month-cell {
+            font-size: 9px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 3px 0;
+        }
+
+        .gantt-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 20px;
+            padding: 16px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+        }
+
+        .legend-item-gantt {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-medium);
+        }
+
+        .legend-color-box {
+            width: 24px;
+            height: 16px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .modal-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 13px;
+            resize: vertical;
+            margin-bottom: 16px;
+        }
+
+        .modal-textarea:focus { outline: none; border-color: var(--primary); }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-btn {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-btn-save { background: var(--primary); color: #fff; }
+        .modal-btn-cancel { background: #e0e0e0; color: var(--text-dark); }
+        .modal-btn:hover { transform: translateY(-1px); }
 
         @media (max-width: 768px) {
             .page-title h1 { font-size: 20px; }
@@ -910,6 +985,7 @@
         @media print {
             .tabs-container { display: none; }
             .print-btn { display: none; }
+            .gantt-buttons { display: none; }
             .tab-content { display: block !important; page-break-after: always; }
             body { background: #fff; }
         }
@@ -951,8 +1027,7 @@
             <span class="section-title">БЛОК-СХЕМА ДИЗАЙНА ИССЛЕДОВАНИЯ</span>
         </div>
         <p class="text-center mb-20" style="color: var(--screening); font-weight: 600;">
-            Проспективное одноцентровое когортное исследование с элементами «случай-контроль»<br>
-            Вложенная когорта (nested case-control study) в рамках проспективно наблюдаемой группы
+            Проспективное одноцентровое когортное исследование с элементами «случай-контроль»
         </p>
 
         <div class="important-note">
@@ -972,21 +1047,21 @@
                     <h3>✅ КРИТЕРИИ ВКЛЮЧЕНИЯ</h3>
                     <ul>
                         <li>Возраст 35–55 лет</li>
-                        <li>Верифицированный МС по критериям IDF (2005)</li>
-                        <li>Окружность талии (ОТ) ≥ 80 см</li>
-                        <li>Морфологически подтверждённый диагноз эндометрия (≤ 3 мес. до включения)</li>
+                        <li>Верифицированный МС по IDF (2005)</li>
+                        <li>ОТ ≥ 80 см</li>
+                        <li>Морфологически подтверждённый диагноз (≤ 3 мес.)</li>
                         <li>Информированное согласие</li>
                     </ul>
                 </div>
                 <div class="flow-box box-exclusion">
                     <h3>❌ КРИТЕРИИ НЕВКЛЮЧЕНИЯ</h3>
                     <ul>
-                        <li>Рак эндометрия или др. онкология в анамнезе</li>
-                        <li>Гормональная терапия за последние 6 мес.</li>
-                        <li>Беременность, лактация, планирование</li>
-                        <li>Тяжёлая декомпенсированная патология</li>
-                        <li>Острые/обострение хронических заболеваний</li>
-                        <li>ВМС &lt; 12 мес., операции на матке в анамнезе</li>
+                        <li>Рак эндометрия или др. онкология</li>
+                        <li>Гормональная терапия за 6 мес.</li>
+                        <li>Беременность, лактация</li>
+                        <li>Декомпенсированная патология</li>
+                        <li>Острые/обострение хр. заболеваний</li>
+                        <li>ВМС &lt; 12 мес., операции на матке</li>
                     </ul>
                 </div>
             </div>
@@ -1004,29 +1079,25 @@
             <div class="flow-row">
                 <div class="flow-box box-group1">
                     <h3>ГРУППА 1 (n = 45)</h3>
-                    <p><strong>МС + АГЭ</strong><br>
-                    Атипическая гиперплазия эндометрия (простая или сложная с атипией)</p>
+                    <p><strong>МС + АГЭ</strong><br>Атипическая гиперплазия эндометрия</p>
                 </div>
                 <div class="flow-box box-group2">
                     <h3>ГРУППА 2 (n = 45)</h3>
-                    <p><strong>МС + ГЭ без атипии</strong><br>
-                    Гиперплазия эндометрия без атипии (простая или сложная)</p>
+                    <p><strong>МС + ГЭ без атипии</strong><br>Гиперплазия без атипии</p>
                 </div>
                 <div class="flow-box box-group3">
                     <h3>ГРУППА 3 (n = 45)</h3>
-                    <p><strong>МС без патологии эндометрия (контроль)</strong><br>
-                    Отсутствие патологии по УЗИ и/или пайпель-биопсии</p>
+                    <p><strong>МС (контроль)</strong><br>Без патологии эндометрия</p>
                 </div>
             </div>
 
             <div class="flow-arrow"></div>
 
-            <!-- ЭТАП 1 -->
             <div class="flow-box box-timepoint" style="max-width: 700px;">
                 <h3>ЭТАП 1 — БАЗОВОЕ ОБСЛЕДОВАНИЕ</h3>
                 <p style="margin-top: 8px;">
                     <span class="badge badge-info">Информированное согласие</span>
-                    <span class="badge badge-info">Сбор анамнеза</span>
+                    <span class="badge badge-info">Анамнез</span>
                     <span class="badge badge-info">Антропометрия</span>
                     <span class="badge badge-info">Трансвагинальное УЗИ</span>
                 </p>
@@ -1034,7 +1105,6 @@
 
             <div class="flow-arrow flow-arrow-short"></div>
 
-            <!-- ЭТАП 2 -->
             <div class="flow-box box-timepoint" style="max-width: 750px;">
                 <h3>ЭТАП 2 — ЛАБОРАТОРНОЕ ОБСЛЕДОВАНИЕ</h3>
                 <p style="margin-top: 8px; font-size: 12px;">Венозная кровь натощак — единая лаборатория</p>
@@ -1042,10 +1112,10 @@
                     <strong style="color: var(--metabolic);">🧪 Метаболический профиль:</strong><br>
                     <span class="badge badge-purple">Глюкоза</span>
                     <span class="badge badge-purple">Инсулин → HOMA-IR</span>
-                    <span class="badge badge-purple">Липидный спектр</span>
+                    <span class="badge badge-purple">Липиды</span>
                 </div>
                 <div style="margin-top: 8px;">
-                    <strong style="color: var(--inflammation);">🔥 Дисфункция жировой ткани + воспаление:</strong><br>
+                    <strong style="color: var(--inflammation);">🔥 Адипокины + воспаление:</strong><br>
                     <span class="badge" style="background:#fbe9e7;color:#d84315;">Лептин</span>
                     <span class="badge" style="background:#fbe9e7;color:#d84315;">Адипонектин</span>
                     <span class="badge" style="background:#fbe9e7;color:#d84315;">hs-CRP</span>
@@ -1068,20 +1138,17 @@
 
             <div class="flow-arrow flow-arrow-short"></div>
 
-            <!-- ЭТАП 3 -->
             <div class="flow-box box-analysis" style="max-width: 750px;">
                 <h3>ЭТАП 3 — СТАТИСТИЧЕСКИЙ АНАЛИЗ И МОДЕЛИРОВАНИЕ</h3>
                 <p style="margin-top: 8px;">
-                    Проверка нормальности (Шапиро-Уилка) • Сравнение групп (ANOVA / Краскела-Уоллиса)<br>
+                    Шапиро-Уилка • ANOVA / Краскела-Уоллиса<br>
                     Корреляции (Спирмен/Пирсон) • Многомерная логистическая регрессия<br>
-                    Внутренняя валидация (bootstrap) • ROC-анализ, AUC, Se, Sp<br>
-                    <strong>Построение номограммы</strong>
+                    Внутренняя валидация (bootstrap) • ROC-анализ • <strong>Номограмма</strong>
                 </p>
             </div>
 
             <div class="flow-arrow flow-arrow-short"></div>
 
-            <!-- ЭТАП 4 -->
             <div class="flow-box box-result" style="max-width: 750px; border-width: 3px;">
                 <h3>🎯 ЭТАП 4 — ВНЕДРЕНИЕ И КЛИНИЧЕСКИЙ АЛГОРИТМ</h3>
                 <p style="margin-top: 10px;">
@@ -1089,9 +1156,9 @@
                     <strong>Дифференцированный алгоритм</strong> ведения пациенток:
                 </p>
                 <div style="margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                    <span class="badge" style="background:#c8e6c9;color:#1b5e20;font-size:12px;padding:5px 12px;">Низкий риск (&lt;5%) → консервативно</span>
-                    <span class="badge" style="background:#ffe082;color:#e65100;font-size:12px;padding:5px 12px;">Средний (5-30%) → гистероскопия</span>
-                    <span class="badge" style="background:#ffcdd2;color:#b71c1c;font-size:12px;padding:5px 12px;">Высокий (&gt;30%) → гистерэктомия</span>
+                    <span class="badge" style="background:#c8e6c9;color:#1b5e20;font-size:12px;padding:5px 12px;">Низкий (&lt;5%)</span>
+                    <span class="badge" style="background:#ffe082;color:#e65100;font-size:12px;padding:5px 12px;">Средний (5-30%)</span>
+                    <span class="badge" style="background:#ffcdd2;color:#b71c1c;font-size:12px;padding:5px 12px;">Высокий (&gt;30%)</span>
                 </div>
             </div>
         </div>
@@ -1109,7 +1176,7 @@
         <div class="groups-tree">
             <div class="tree-level">
                 <div class="tree-card box-screening" style="min-width: 320px;">
-                    <h3 style="color: var(--screening); font-size: 18px;">ВСЕ ВКЛЮЧЁННЫЕ ПАЦИЕНТКИ</h3>
+                    <h3 style="color: var(--screening); font-size: 18px;">ВСЕ ВКЛЮЧЁННЫЕ</h3>
                     <p style="font-size: 28px; font-weight: 800; color: var(--screening);">N = 135</p>
                     <p style="font-size: 13px;">Женщины с метаболическим синдромом<br>Критерии IDF (2005)</p>
                 </div>
@@ -1121,29 +1188,17 @@
                 <div class="tree-card box-group1" style="flex: 1; max-width: 320px;">
                     <h3 style="color: var(--group1); font-size: 16px;">ГРУППА 1 — МС + АГЭ</h3>
                     <p style="font-size: 28px; font-weight: 800; color: var(--group1);">n = 45</p>
-                    <p style="font-size: 12.5px;">
-                        Атипическая гиперплазия<br>
-                        (простая или сложная с атипией)<br>
-                        <em>Случаи</em>
-                    </p>
+                    <p style="font-size: 12.5px;">Атипическая гиперплазия<br>(простая или сложная с атипией)<br><em>Случаи</em></p>
                 </div>
                 <div class="tree-card box-group2" style="flex: 1; max-width: 320px;">
                     <h3 style="color: var(--group2); font-size: 16px;">ГРУППА 2 — МС + ГЭ</h3>
                     <p style="font-size: 28px; font-weight: 800; color: var(--group2);">n = 45</p>
-                    <p style="font-size: 12.5px;">
-                        Гиперплазия без атипии<br>
-                        (простая или сложная)<br>
-                        <em>Группа сравнения</em>
-                    </p>
+                    <p style="font-size: 12.5px;">Гиперплазия без атипии<br>(простая или сложная)<br><em>Группа сравнения</em></p>
                 </div>
                 <div class="tree-card box-group3" style="flex: 1; max-width: 320px;">
                     <h3 style="color: var(--group3); font-size: 16px;">ГРУППА 3 — МС (контроль)</h3>
                     <p style="font-size: 28px; font-weight: 800; color: var(--group3);">n = 45</p>
-                    <p style="font-size: 12.5px;">
-                        МС без патологии эндометрия<br>
-                        (УЗИ + пайпель-биопсия)<br>
-                        <em>Контроль</em>
-                    </p>
+                    <p style="font-size: 12.5px;">МС без патологии эндометрия<br>(УЗИ + пайпель-биопсия)<br><em>Контроль</em></p>
                 </div>
             </div>
 
@@ -1161,32 +1216,6 @@
                     </p>
                 </div>
             </div>
-
-            <div class="tree-connector"><div class="tree-connector-line"></div></div>
-
-            <div class="tree-level">
-                <div class="tree-card box-inclusion" style="flex: 1; max-width: 500px;">
-                    <h3 style="color: var(--inclusion); font-size: 14px;">ОБЩИЕ КРИТЕРИИ ВКЛЮЧЕНИЯ</h3>
-                    <ul style="font-size: 12.5px; text-align: left; padding: 5px 15px 0;">
-                        <li>✓ Возраст 35–55 лет</li>
-                        <li>✓ Верифицированный МС (IDF 2005)</li>
-                        <li>✓ ОТ ≥ 80 см</li>
-                        <li>✓ Морфологический диагноз ≤ 3 мес.</li>
-                        <li>✓ Информированное согласие</li>
-                    </ul>
-                </div>
-                <div class="tree-card box-exclusion" style="flex: 1; max-width: 500px;">
-                    <h3 style="color: var(--exclusion); font-size: 14px;">ОБЩИЕ КРИТЕРИИ НЕВКЛЮЧЕНИЯ</h3>
-                    <ul style="font-size: 12.5px; text-align: left; padding: 5px 15px 0;">
-                        <li>✗ Рак эндометрия / онкология в анамнезе</li>
-                        <li>✗ Гормональная терапия за 6 мес.</li>
-                        <li>✗ Беременность, лактация</li>
-                        <li>✗ Декомпенсированная патология</li>
-                        <li>✗ Острые/обострение хронических заболеваний</li>
-                        <li>✗ ВМС &lt; 12 мес., операции на матке</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -1197,142 +1226,88 @@
         </div>
 
         <div class="important-note">
-            <strong>🔬 Концепция исследования:</strong> Поиск маркеров «злокачественного потенциала» гиперплазии путём комбинации <strong>метаболических</strong> и <strong>онкологических</strong> показателей, отражающих разные стороны патогенеза АГЭ при метаболическом синдроме.
+            <strong>🔬 Концепция:</strong> Поиск маркеров «злокачественного потенциала» гиперплазии путём комбинации <strong>метаболических</strong> и <strong>онкологических</strong> показателей, отражающих разные стороны патогенеза АГЭ при метаболическом синдроме.
         </div>
 
         <div class="markers-grid">
-
-            <!-- Метаболические маркеры -->
             <div class="marker-card group-metabolic">
                 <h3>🧪 HOMA-IR</h3>
-                <p>
-                    <strong>Индекс инсулинорезистентности</strong><br>
-                    Ключевой маркер метаболических нарушений.
-                    Расчётный показатель: глюкоза × инсулин / 22,5
-                </p>
+                <p><strong>Индекс инсулинорезистентности</strong><br>Расчётный показатель: глюкоза × инсулин / 22,5</p>
                 <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
                 <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Порог: > 4,0</span>
             </div>
 
             <div class="marker-card group-metabolic">
-                <h3>🧪 Глюкоза</h3>
-                <p>
-                    Уровень глюкозы натощак. Базовый показатель углеводного обмена.
-                </p>
+                <h3>🧪 Глюкоза + инсулин</h3>
+                <p>Глюкоза и инсулин натощак. Базовые показатели углеводного обмена.</p>
                 <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
-                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">ммоль/л</span>
-            </div>
-
-            <div class="marker-card group-metabolic">
-                <h3>🧪 Инсулин</h3>
-                <p>
-                    Базальный инсулин натощак. Используется для расчёта HOMA-IR.
-                </p>
-                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
-                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">мкЕд/мл</span>
             </div>
 
             <div class="marker-card group-metabolic">
                 <h3>🧪 Липидный спектр</h3>
-                <p>
-                    Общий холестерин, ЛПНП, ЛПВП, триглицериды. Оценка липидного компонента МС.
-                </p>
+                <p>Общий холестерин, ЛПНП, ЛПВП, триглицериды.</p>
                 <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
-                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">ммоль/л</span>
             </div>
 
-            <!-- Воспаление и адипокины -->
             <div class="marker-card group-inflammation">
                 <h3>🔥 Лептин</h3>
-                <p>
-                    <strong>Гормон жировой ткани.</strong> При гиперлептинемии стимулирует пролиферацию эндометрия.
-                </p>
+                <p><strong>Гормон жировой ткани.</strong> При гиперлептинемии стимулирует пролиферацию эндометрия.</p>
                 <span class="tag" style="background:#ffccbc;color:#d84315;">Адипокин</span>
                 <span class="tag" style="background:#ffccbc;color:#d84315;">Порог: > 25 нг/мл</span>
             </div>
 
             <div class="marker-card group-inflammation">
                 <h3>🔥 Адипонектин</h3>
-                <p>
-                    <strong>Защитный адипокин.</strong> Снижение уровня ассоциировано с инсулинорезистентностью и канцерогенезом.
-                </p>
+                <p><strong>Защитный адипокин.</strong> Снижение уровня — фактор риска.</p>
                 <span class="tag" style="background:#ffccbc;color:#d84315;">Адипокин</span>
-                <span class="tag" style="background:#ffccbc;color:#d84315;">мкг/мл</span>
             </div>
 
             <div class="marker-card group-inflammation">
                 <h3>🔥 hs-CRP</h3>
-                <p>
-                    <strong>Высокочувствительный С-реактивный белок.</strong> Маркер системного воспаления низкой интенсивности.
-                </p>
+                <p><strong>Высокочувствительный С-реактивный белок.</strong> Маркер системного воспаления.</p>
                 <span class="tag" style="background:#ffccbc;color:#d84315;">Воспаление</span>
-                <span class="tag" style="background:#ffccbc;color:#d84315;">мг/л</span>
             </div>
 
-            <!-- Онкомаркеры -->
             <div class="marker-card group-oncology">
                 <h3>🎗 HE4</h3>
-                <p>
-                    <strong>Human Epididymis protein 4.</strong> Современный онкомаркер, более специфичный для гинекологической онкопатологии, чем CA-125.
-                </p>
+                <p><strong>Human Epididymis protein 4.</strong> Современный онкомаркер с высокой специфичностью.</p>
                 <span class="tag" style="background:#f8bbd0;color:#c2185b;">Онкомаркер</span>
-                <span class="tag" style="background:#f8bbd0;color:#c2185b;">пмоль/л</span>
             </div>
 
             <div class="marker-card group-oncology">
                 <h3>🎗 CA-125</h3>
-                <p>
-                    Классический онкомаркер. Низкая специфичность при АГЭ, используется в составе индекса ROMA.
-                </p>
+                <p>Классический онкомаркер. Используется в составе индекса ROMA.</p>
                 <span class="tag" style="background:#f8bbd0;color:#c2185b;">Онкомаркер</span>
-                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Ед/мл</span>
             </div>
 
             <div class="marker-card group-oncology">
                 <h3>🎗 Индекс ROMA</h3>
-                <p>
-                    <strong>Risk of Ovarian Malignancy Algorithm.</strong> Расчётный индекс на основе HE4 и CA-125 с учётом менопаузального статуса.
-                </p>
+                <p><strong>Risk of Ovarian Malignancy Algorithm.</strong> Расчёт на основе HE4 + CA-125.</p>
                 <span class="tag" style="background:#f8bbd0;color:#c2185b;">Расчётный</span>
-                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Порог: > 20% (постменопауза)</span>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Порог: > 20%</span>
             </div>
 
-            <!-- Гормоны -->
             <div class="marker-card group-hormone">
                 <h3>⚖️ Эстрадиол</h3>
-                <p>
-                    Основной эстроген. Гиперэстрогения — ключевой фактор пролиферации эндометрия.
-                </p>
+                <p>Основной эстроген. Гиперэстрогения — ключевой фактор пролиферации эндометрия.</p>
                 <span class="tag" style="background:#b2dfdb;color:#00695c;">Гормон</span>
-                <span class="tag" style="background:#b2dfdb;color:#00695c;">пг/мл</span>
             </div>
 
             <div class="marker-card group-hormone">
                 <h3>⚖️ Тестостерон + ГСПГ → ИСА</h3>
-                <p>
-                    Тестостерон, глобулин, связывающий половые гормоны. Расчёт <strong>индекса свободных андрогенов</strong>.
-                </p>
-                <span class="tag" style="background:#b2dfdb;color:#00695c;">Гормон</span>
+                <p>Расчёт <strong>индекса свободных андрогенов</strong>.</p>
                 <span class="tag" style="background:#b2dfdb;color:#00695c;">Расчётный</span>
             </div>
 
             <div class="marker-card group-hormone">
                 <h3>⚖️ ФСГ + ЛГ</h3>
-                <p>
-                    Фолликулостимулирующий и лютеинизирующий гормоны. Оценка менопаузального статуса.
-                </p>
+                <p>Оценка менопаузального статуса.</p>
                 <span class="tag" style="background:#b2dfdb;color:#00695c;">Гормон</span>
-                <span class="tag" style="background:#b2dfdb;color:#00695c;">мМЕ/мл</span>
             </div>
 
-            <!-- Антропометрия -->
             <div class="marker-card" style="background:#fffde7;border-left-color:#f9a825;">
                 <h3 style="color:#f9a825;">📏 Антропометрия</h3>
-                <p>
-                    <strong>Окружность талии (ОТ)</strong> — ключевой компонент МС.<br>
-                    ИМТ, соотношение талия/бёдра.
-                </p>
-                <span class="tag" style="background:#fff9c4;color:#f57f17;">Антропометрия</span>
+                <p><strong>Окружность талии (ОТ)</strong> — ключевой компонент МС.</p>
                 <span class="tag" style="background:#fff9c4;color:#f57f17;">Порог ОТ: > 90 см</span>
             </div>
         </div>
@@ -1346,14 +1321,14 @@
                 <strong style="color: var(--group1);">Абдоминальное ожирение</strong> →
                 <strong style="color: var(--metabolic);">Гиперинсулинемия / Гиперлептинемия</strong> →<br>
                 <strong style="color: var(--inflammation);">Системное воспаление</strong> →
-                <strong style="color: var(--oncology);">Дисрегуляция пролиферации и апоптоза в эндометрии</strong><br>
-                (опосредованно через HE4/ROMA) →
+                <strong style="color: var(--oncology);">Дисрегуляция пролиферации</strong><br>
+                (через HE4/ROMA) →
                 <strong style="color: var(--exclusion);">Развитие атипии</strong>
             </div>
         </div>
     </div>
 
-    <!-- ТАБ 4: ПРОГРАММА ИССЛЕДОВАНИЯ -->
+    <!-- ТАБ 4: ПРОГРАММА -->
     <div id="tab4" class="tab-content">
         <div class="section-title-wrap">
             <span class="section-title">ПРОГРАММА ИССЛЕДОВАНИЯ</span>
@@ -1361,60 +1336,45 @@
 
         <div style="max-width: 1000px; margin: 0 auto;">
             <div class="stage-card">
-                <h3>
-                    <span class="stage-number">1</span>
-                    Формирование групп и базовое обследование
-                </h3>
+                <h3><span class="stage-number">1</span>Формирование групп и базовое обследование</h3>
                 <ul>
                     <li>Получение информированного добровольного согласия</li>
-                    <li>Стандартизированный сбор анамнеза (гинекологический, эндокринологический, семейный)</li>
-                    <li>Антропометрия: рост, масса тела, ИМТ, окружность талии (ОТ), окружность бёдер (ОБ)</li>
-                    <li>Трансвагинальное УЗИ органов малого таза (толщина М-эхо, структура эндометрия)</li>
+                    <li>Стандартизированный сбор анамнеза</li>
+                    <li>Антропометрия: рост, масса, ИМТ, ОТ, ОБ</li>
+                    <li>Трансвагинальное УЗИ органов малого таза</li>
                     <li>Измерение АД, оценка соматического статуса</li>
                 </ul>
             </div>
 
             <div class="stage-card">
-                <h3>
-                    <span class="stage-number">2</span>
-                    Лабораторное обследование
-                </h3>
-                <p style="margin-left: 50px; margin-bottom: 10px;">
-                    <em>Забор венозной крови натощак, единая лаборатория для всех образцов</em>
-                </p>
+                <h3><span class="stage-number">2</span>Лабораторное обследование</h3>
+                <p style="margin-left: 50px; margin-bottom: 10px;"><em>Венозная кровь натощак, единая лаборатория</em></p>
                 <ul>
-                    <li><strong style="color:var(--metabolic);">Метаболический профиль:</strong> глюкоза, инсулин (с расчётом HOMA-IR), липидный спектр (общий ХС, ЛПВП, ЛПНП, ТГ)</li>
-                    <li><strong style="color:var(--inflammation);">Маркеры дисфункции жировой ткани и воспаления:</strong> лептин, адипонектин, hs-CRP</li>
-                    <li><strong style="color:var(--oncology);">Онкомаркеры:</strong> HE4, CA-125 (с расчётом индекса ROMA по соответствующим формулам)</li>
-                    <li><strong style="color:var(--hormone);">Гормональный профиль:</strong> эстрадиол, тестостерон, ГСПГ (с расчётом индекса свободных андрогенов), ФСГ, ЛГ</li>
+                    <li><strong style="color:var(--metabolic);">Метаболический профиль:</strong> глюкоза, инсулин (HOMA-IR), липидный спектр</li>
+                    <li><strong style="color:var(--inflammation);">Адипокины + воспаление:</strong> лептин, адипонектин, hs-CRP</li>
+                    <li><strong style="color:var(--oncology);">Онкомаркеры:</strong> HE4, CA-125 (индекс ROMA)</li>
+                    <li><strong style="color:var(--hormone);">Гормональный профиль:</strong> эстрадиол, тестостерон, ГСПГ (ИСА), ФСГ, ЛГ</li>
                 </ul>
             </div>
 
             <div class="stage-card">
-                <h3>
-                    <span class="stage-number">3</span>
-                    Статистический анализ и моделирование
-                </h3>
+                <h3><span class="stage-number">3</span>Статистический анализ и моделирование</h3>
                 <ul>
-                    <li>Проверка данных на нормальность (критерий Шапиро-Уилка)</li>
-                    <li>Сравнение групп: ANOVA / критерий Краскела-Уоллиса (3 группы), пост-хок тесты с поправкой</li>
-                    <li>Оценка корреляций: коэффициент Спирмена / Пирсона</li>
-                    <li>Отбор переменных для многомерной логистической регрессии (пошаговый метод)</li>
-                    <li>Разработка прогностической модели и её <strong>внутренняя валидация (метод bootstrap)</strong></li>
-                    <li>Построение ROC-кривых, расчёт AUC, чувствительности, специфичности, PPV, NPV</li>
-                    <li><strong>Создание номограммы</strong> для расчёта индивидуального риска АГЭ</li>
+                    <li>Проверка данных на нормальность (Шапиро-Уилка)</li>
+                    <li>Сравнение групп: ANOVA / критерий Краскела-Уоллиса</li>
+                    <li>Оценка корреляций: Спирмена / Пирсона</li>
+                    <li>Многомерная логистическая регрессия (пошаговый метод)</li>
+                    <li><strong>Внутренняя валидация (bootstrap, 1000 итераций)</strong></li>
+                    <li>ROC-анализ: AUC, Se, Sp, PPV, NPV</li>
+                    <li><strong>Создание номограммы</strong> для расчёта риска АГЭ</li>
                 </ul>
             </div>
 
             <div class="stage-card">
-                <h3>
-                    <span class="stage-number">4</span>
-                    Анализ результатов, формулировка выводов и внедрение
-                </h3>
+                <h3><span class="stage-number">4</span>Анализ результатов и внедрение</h3>
                 <ul>
-                    <li>Интерпретация результатов в свете современных представлений о патогенезе АГЭ</li>
-                    <li>Формулировка выводов и практических рекомендаций</li>
-                    <li>Подготовка и публикация научных статей в журналах перечня ВАК и Scopus</li>
+                    <li>Интерпретация результатов</li>
+                    <li>Подготовка статей в журналах ВАК и Scopus</li>
                     <li>Разработка методических рекомендаций</li>
                     <li><strong>Внедрение калькулятора риска АГЭ в клиническую практику</strong></li>
                     <li>Защита диссертации</li>
@@ -1423,7 +1383,7 @@
         </div>
     </div>
 
-    <!-- ТАБ 5: СТАТИСТИЧЕСКИЙ АНАЛИЗ -->
+    <!-- ТАБ 5: СТАТИСТИКА -->
     <div id="tab5" class="tab-content">
         <div class="section-title-wrap">
             <span class="section-title">ПЛАН СТАТИСТИЧЕСКОГО АНАЛИЗА</span>
@@ -1434,9 +1394,9 @@
                 <h3><span class="step-number">1</span>Описательная статистика</h3>
                 <ul>
                     <li>M ± SD (нормальное распределение)</li>
-                    <li>Me [Q₁; Q₃] (ненормальное распределение)</li>
-                    <li>n, % (категориальные переменные)</li>
-                    <li>Шапиро-Уилка (проверка нормальности)</li>
+                    <li>Me [Q₁; Q₃] (ненормальное)</li>
+                    <li>n, % (категориальные)</li>
+                    <li>Шапиро-Уилка</li>
                 </ul>
             </div>
 
@@ -1444,9 +1404,9 @@
                 <h3><span class="step-number">2</span>Сравнительный анализ 3 групп</h3>
                 <ul>
                     <li>ANOVA (нормальное распределение)</li>
-                    <li>Критерий Краскела-Уоллиса (ненормальное)</li>
-                    <li>Пост-хок: Тьюки / Данна с поправкой Бонферрони</li>
-                    <li>χ² Пирсона / точный тест Фишера</li>
+                    <li>Краскела-Уоллиса (ненормальное)</li>
+                    <li>Пост-хок: Тьюки / Данна с Бонферрони</li>
+                    <li>χ² Пирсона / Фишер</li>
                 </ul>
             </div>
 
@@ -1456,234 +1416,184 @@
                     <li>Коэффициент Пирсона (r)</li>
                     <li>Коэффициент Спирмена (ρ)</li>
                     <li>HOMA-IR ↔ Лептин ↔ hs-CRP</li>
-                    <li>Метаболические маркеры ↔ HE4, ROMA</li>
+                    <li>Метаболические ↔ HE4, ROMA</li>
                 </ul>
             </div>
 
             <div class="stats-card s4">
-                <h3><span class="step-number">4</span>Многомерная логистическая регрессия</h3>
+                <h3><span class="step-number">4</span>Логистическая регрессия</h3>
                 <ul>
-                    <li>Пошаговый отбор предикторов (forward/backward)</li>
-                    <li>Расчёт OR (отношение шансов) + 95% ДИ</li>
-                    <li>Оценка коэффициентов модели (β)</li>
-                    <li>Тест Хосмера-Лемешова (goodness of fit)</li>
+                    <li>Пошаговый отбор предикторов</li>
+                    <li>OR (отношение шансов) + 95% ДИ</li>
+                    <li>Коэффициенты модели (β)</li>
+                    <li>Тест Хосмера-Лемешова</li>
                 </ul>
             </div>
 
             <div class="stats-card s5">
                 <h3><span class="step-number">5</span>ROC-анализ</h3>
                 <ul>
-                    <li>Построение ROC-кривых для каждого маркера</li>
-                    <li>AUC (площадь под кривой) с 95% ДИ</li>
-                    <li>Cut-off значения (индекс Юдена)</li>
+                    <li>ROC-кривые для каждого маркера</li>
+                    <li>AUC + 95% ДИ</li>
+                    <li>Cut-off (индекс Юдена)</li>
                     <li>Se, Sp, PPV, NPV, LR+, LR−</li>
                 </ul>
             </div>
 
             <div class="stats-card s6">
-                <h3><span class="step-number">6</span>Внутренняя валидация (Bootstrap)</h3>
+                <h3><span class="step-number">6</span>Bootstrap-валидация</h3>
                 <ul>
-                    <li>Метод бутстрепа (1000 итераций)</li>
+                    <li>1000 итераций</li>
                     <li>Оценка стабильности модели</li>
-                    <li>Корректировка optimism (overfitting)</li>
-                    <li>Calibration plot (калибровочная кривая)</li>
+                    <li>Корректировка optimism</li>
+                    <li>Calibration plot</li>
                 </ul>
             </div>
 
             <div class="stats-card s7">
-                <h3><span class="step-number">7</span>Структурное моделирование (SEM)</h3>
+                <h3><span class="step-number">7</span>Структурное моделирование</h3>
                 <ul>
                     <li>Path analysis (анализ путей)</li>
                     <li>Подтверждение патогенетической цепочки</li>
-                    <li>Оценка прямых и опосредованных эффектов</li>
-                    <li>Индексы согласия модели (CFI, RMSEA)</li>
+                    <li>Прямые + опосредованные эффекты</li>
+                    <li>Индексы согласия (CFI, RMSEA)</li>
                 </ul>
             </div>
 
             <div class="stats-card stats-final">
                 <h3>🎯 ПРОГНОСТИЧЕСКАЯ МОДЕЛЬ И НОМОГРАММА</h3>
                 <p style="font-size: 13px; color: var(--text-medium); margin-top: 8px;">
-                    <strong>Целевые показатели качества модели:</strong><br>
-                    AUC &gt; 0,85 на обучающей выборке • AUC &gt; 0,80 при внутренней валидации
+                    <strong>Целевые показатели качества:</strong><br>
+                    AUC &gt; 0,85 (обучающая выборка) • AUC &gt; 0,80 (валидация)
                 </p>
                 <div class="formula-box" style="margin-top: 12px; text-align: left;">
                     <strong>Пример уравнения логистической регрессии:</strong><br><br>
                     Логарифм шансов (АГЭ) = 1,2 + 0,8 × (HOMA-IR) + 0,05 × (Лептин)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 0,9 × (ROMA_статус) − 0,03 × (Адипонектин)
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 0,9 × (ROMA) − 0,03 × (Адипонектин)
                 </div>
             </div>
 
             <div class="stats-card stats-software">
-                <h3 style="justify-content: center; color: #455a64;">💻 Программное обеспечение</h3>
+                <h3 style="justify-content: center; color: #455a64;">💻 ПО</h3>
                 <p style="font-size: 14px; color: var(--text-medium);">
                     <strong>IBM SPSS Statistics 26.0</strong> &nbsp;•&nbsp;
-                    <strong>R (пакеты: pROC, rms, ResourceSelection)</strong> &nbsp;•&nbsp;
+                    <strong>R (pROC, rms)</strong> &nbsp;•&nbsp;
                     <strong>MedCalc</strong><br>
-                    Уровень значимости: <strong>p &lt; 0,05</strong> &nbsp;•&nbsp;
-                    Поправка Бонферрони при множественных сравнениях
+                    Уровень значимости: <strong>p &lt; 0,05</strong>
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- ТАБ 6: КЛИНИЧЕСКИЙ АЛГОРИТМ -->
+    <!-- ТАБ 6: АЛГОРИТМ -->
     <div id="tab6" class="tab-content">
         <div class="section-title-wrap">
             <span class="section-title">ДИФФЕРЕНЦИРОВАННЫЙ КЛИНИЧЕСКИЙ АЛГОРИТМ</span>
         </div>
 
         <div class="important-note">
-            <strong>🎯 Принцип персонализации:</strong> На основе расчётного индивидуального индекса риска АГЭ пациентка относится к одной из трёх групп с соответствующей тактикой ведения. Это позволит избежать <strong>двух крайностей</strong>: неоправданно радикального лечения у одних женщин и опасной отсрочки операции у других.
+            <strong>🎯 Принцип персонализации:</strong> На основе расчётного индивидуального индекса риска АГЭ пациентка относится к одной из трёх групп с соответствующей тактикой ведения.
         </div>
 
         <div style="max-width: 1000px; margin: 30px auto;">
-            <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px; font-size: 18px;">
-                Стратификация риска и тактика ведения
-            </h3>
-
             <div class="algorithm-card low-risk">
-                <h3>
-                    🟢 НИЗКИЙ РИСК
-                    <span class="risk-percent" style="background:#c8e6c9;color:#1b5e20;">&lt; 5%</span>
-                </h3>
-                <p>
-                    <strong>Тактика:</strong> Консервативная гормональная терапия под контролем
-                </p>
+                <h3>🟢 НИЗКИЙ РИСК <span class="risk-percent" style="background:#c8e6c9;color:#1b5e20;">&lt; 5%</span></h3>
+                <p><strong>Тактика:</strong> Консервативная гормональная терапия под контролем</p>
                 <ul style="margin-top: 10px; padding-left: 20px; font-size: 13px;">
                     <li>Гормональная терапия (гестагены, ВМС с левоноргестрелом)</li>
                     <li>Динамическое наблюдение каждые 3–6 месяцев</li>
-                    <li>Контрольное УЗИ органов малого таза</li>
-                    <li>Коррекция метаболических нарушений (снижение веса, метформин при показаниях)</li>
+                    <li>Контрольное УЗИ</li>
+                    <li>Коррекция метаболических нарушений</li>
                     <li><strong>Сохранение репродуктивного потенциала</strong></li>
                 </ul>
             </div>
 
             <div class="algorithm-card medium-risk">
-                <h3>
-                    🟡 СРЕДНИЙ РИСК
-                    <span class="risk-percent" style="background:#ffe082;color:#e65100;">5 – 30%</span>
-                </h3>
-                <p>
-                    <strong>Тактика:</strong> Обязательная гистероскопия с прицельной биопсией
-                </p>
+                <h3>🟡 СРЕДНИЙ РИСК <span class="risk-percent" style="background:#ffe082;color:#e65100;">5 – 30%</span></h3>
+                <p><strong>Тактика:</strong> Обязательная гистероскопия с прицельной биопсией</p>
                 <ul style="margin-top: 10px; padding-left: 20px; font-size: 13px;">
-                    <li>Диагностическая гистероскопия с прицельной биопсией</li>
+                    <li>Диагностическая гистероскопия с биопсией</li>
                     <li>Морфологическое исследование биоптатов</li>
-                    <li>В зависимости от результата — выбор тактики:
-                        <ul style="padding-left: 20px; margin-top: 5px;">
-                            <li>Подтверждённая ГЭ без атипии → консервативное лечение</li>
-                            <li>Выявленная АГЭ → переход к высокому риску</li>
-                        </ul>
-                    </li>
-                    <li>Динамическое наблюдение каждые 3 месяца</li>
+                    <li>Выбор тактики по результатам</li>
+                    <li>Наблюдение каждые 3 месяца</li>
                 </ul>
             </div>
 
             <div class="algorithm-card high-risk">
-                <h3>
-                    🔴 ВЫСОКИЙ РИСК
-                    <span class="risk-percent" style="background:#ffcdd2;color:#b71c1c;">&gt; 30%</span>
-                </h3>
-                <p>
-                    <strong>Тактика:</strong> Приоритет радикального хирургического лечения
-                </p>
+                <h3>🔴 ВЫСОКИЙ РИСК <span class="risk-percent" style="background:#ffcdd2;color:#b71c1c;">&gt; 30%</span></h3>
+                <p><strong>Тактика:</strong> Приоритет радикального хирургического лечения</p>
                 <ul style="margin-top: 10px; padding-left: 20px; font-size: 13px;">
-                    <li><strong>Гистерэктомия</strong> (тотальная или с придатками — по показаниям)</li>
-                    <li>Интраоперационное гистологическое исследование (срочное)</li>
-                    <li>При выявлении инвазии — расширение объёма операции</li>
+                    <li><strong>Гистерэктомия</strong> (тотальная или с придатками)</li>
+                    <li>Интраоперационное гистологическое исследование</li>
                     <li>Консультация онколога-гинеколога</li>
-                    <li>Послеоперационное наблюдение, коррекция МС</li>
                     <li><strong>Онкологическая безопасность приоритетна</strong></li>
                 </ul>
             </div>
         </div>
-
-        <div style="max-width: 900px; margin: 40px auto 0; padding: 25px;
-                    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
-                    border-radius: 12px; text-align: center;">
-            <h3 style="color: var(--result); font-size: 18px; margin-bottom: 12px;">
-                🎯 ПРАКТИЧЕСКАЯ ЦЕННОСТЬ АЛГОРИТМА
-            </h3>
-            <p style="color: var(--text-dark); font-size: 14px; line-height: 1.7;">
-                Дооперационная стратификация риска АГЭ позволит обоснованно выбирать между<br>
-                <strong>агрессивной диагностической тактикой</strong> (гистероскопия с резектоскопией) и<br>
-                <strong>выжидательно-консервативной</strong> (гормональная терапия под контролем).<br><br>
-                Это напрямую способствует <strong>повышению онкологической безопасности</strong> и<br>
-                <strong>сохранению репродуктивного потенциала</strong> у соответствующих групп пациенток.
-            </p>
-        </div>
     </div>
 
-    <!-- ТАБ 7: ДИАГРАММА ГАНТА -->
+    <!-- ТАБ 7: ИНТЕРАКТИВНАЯ ДИАГРАММА ГАНТА -->
     <div id="tab7" class="tab-content">
-    <div class="section-title-wrap">
-        <span class="section-title">📅 ИНТЕРАКТИВНАЯ ДИАГРАММА ГАНТА</span>
-    </div>
+        <div class="section-title-wrap">
+            <span class="section-title">📅 ИНТЕРАКТИВНАЯ ДИАГРАММА ГАНТА</span>
+        </div>
 
-    <div class="important-note">
-        <strong>💡 Инструкция:</strong> Для каждой задачи укажите процент выполнения (0–100%) или измените статус. 
-        Данные автоматически сохраняются в браузере. Используйте кнопки <strong>«Экспорт»</strong> и <strong>«Импорт»</strong>, 
-        чтобы передавать прогресс между устройствами или научному руководителю.
-    </div>
+        <div class="important-note">
+            <strong>💡 Инструкция:</strong> Для каждой задачи укажите процент выполнения (0–100%) в поле ввода. Данные автоматически сохраняются в браузере. Используйте кнопки <strong>«Экспорт»</strong> и <strong>«Импорт»</strong>, чтобы передавать прогресс между устройствами или научному руководителю.
+        </div>
 
-    <!-- Панель управления и общий прогресс -->
-    <div class="gantt-controls">
-        <div class="overall-progress-section">
-            <div class="overall-progress-label">
-                <span>🎯 Общий прогресс диссертации</span>
-                <span class="overall-progress-percent" id="overallProgressPercent">0%</span>
+        <div class="gantt-controls">
+            <div class="overall-progress-section">
+                <div class="overall-progress-label">
+                    <span>🎯 Общий прогресс диссертации</span>
+                    <span class="overall-progress-percent" id="overallProgressPercent">0%</span>
+                </div>
+                <div class="overall-progress-bar">
+                    <div class="overall-progress-fill" id="overallProgressFill" style="width: 0%;"></div>
+                </div>
+                <div class="overall-progress-stats" id="overallProgressStats">
+                    Не начато: 15 • В процессе: 0 • Выполнено: 0 • Просрочено: 0
+                </div>
             </div>
-            <div class="overall-progress-bar">
-                <div class="overall-progress-fill" id="overallProgressFill" style="width: 0%;"></div>
-            </div>
-            <div class="overall-progress-stats" id="overallProgressStats">
-                Не начато: 15 • В процессе: 0 • Выполнено: 0 • Просрочено: 0
+
+            <div class="gantt-buttons">
+                <button class="control-btn btn-export" onclick="exportProgress()">📤 Экспорт</button>
+                <button class="control-btn btn-import" onclick="document.getElementById('importFile').click()">📥 Импорт</button>
+                <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importProgress(event)">
+                <button class="control-btn btn-print" onclick="window.print()">🖨️ Печать отчёта</button>
+                <button class="control-btn btn-reset" onclick="resetProgress()">🔄 Сбросить</button>
             </div>
         </div>
 
-        <div class="gantt-buttons">
-            <button class="control-btn btn-export" onclick="exportProgress()">📤 Экспорт</button>
-            <button class="control-btn btn-import" onclick="document.getElementById('importFile').click()">📥 Импорт</button>
-            <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importProgress(event)">
-            <button class="control-btn btn-print" onclick="window.print()">🖨️ Печать отчёта</button>
-            <button class="control-btn btn-reset" onclick="resetProgress()">🔄 Сбросить</button>
+        <div class="report-date">
+            Отчёт сформирован: <span id="reportDate"></span>
         </div>
-    </div>
 
-    <!-- Дата отчёта -->
-    <div class="report-date">
-        Отчёт сформирован: <span id="reportDate"></span>
-    </div>
-
-    <!-- Сама диаграмма -->
-    <div class="gantt-container">
         <div class="gantt-chart-interactive" id="ganttChartInteractive"></div>
-    </div>
 
-    <!-- Легенда -->
-    <div class="gantt-legend">
-        <div class="legend-item-gantt">
-            <div class="legend-color-box" style="background: #e0e0e0;"></div>
-            <span>Не начато (0%)</span>
-        </div>
-        <div class="legend-item-gantt">
-            <div class="legend-color-box" style="background: #ffb74d;"></div>
-            <span>В процессе (1–99%)</span>
-        </div>
-        <div class="legend-item-gantt">
-            <div class="legend-color-box" style="background: #66bb6a;"></div>
-            <span>Выполнено (100%)</span>
-        </div>
-        <div class="legend-item-gantt">
-            <div class="legend-color-box" style="background: #ef5350;"></div>
-            <span>Просрочено</span>
-        </div>
-        <div class="legend-item-gantt">
-            <div class="legend-color-box" style="background: #c62828; width: 4px;"></div>
-            <span>Текущая дата</span>
+        <div class="gantt-legend">
+            <div class="legend-item-gantt">
+                <div class="legend-color-box" style="background: #e0e0e0;"></div>
+                <span>Не начато (0%)</span>
+            </div>
+            <div class="legend-item-gantt">
+                <div class="legend-color-box" style="background: #ffb74d;"></div>
+                <span>В процессе (1–99%)</span>
+            </div>
+            <div class="legend-item-gantt">
+                <div class="legend-color-box" style="background: #66bb6a;"></div>
+                <span>Выполнено (100%)</span>
+            </div>
+            <div class="legend-item-gantt">
+                <div class="legend-color-box" style="background: #ef5350;"></div>
+                <span>Просрочено</span>
+            </div>
+            <div class="legend-item-gantt">
+                <div class="legend-color-box" style="background: #c62828; width: 4px;"></div>
+                <span>Текущая дата</span>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- ТАБ 8: ИНФОГРАФИКА -->
     <div id="tab8" class="tab-content">
@@ -1710,11 +1620,11 @@
             </div>
             <div class="info-card c5">
                 <div class="big-number">&gt;0,85</div>
-                <div class="info-label">целевой AUC<br>прогностической модели</div>
+                <div class="info-label">целевой AUC<br>модели</div>
             </div>
             <div class="info-card c6">
                 <div class="big-number">3</div>
-                <div class="info-label">уровня риска<br>в алгоритме ведения</div>
+                <div class="info-label">уровня риска<br>в алгоритме</div>
             </div>
         </div>
 
@@ -1727,9 +1637,8 @@
                 <div class="stats-card s4" style="border-left-width: 6px;">
                     <h3><span class="step-number">1</span>Метаболические различия</h3>
                     <ul>
-                        <li>У женщин с МС + АГЭ HOMA-IR, лептин, hs-CRP и индекс ROMA <strong>статистически значимо выше</strong></li>
-                        <li>Уровень адипонектина — <strong>ниже</strong></li>
-                        <li>Доказательство патогенетической неоднородности</li>
+                        <li>В группе МС + АГЭ HOMA-IR, лептин, hs-CRP, ROMA <strong>статистически выше</strong></li>
+                        <li>Адипонектин — <strong>ниже</strong></li>
                     </ul>
                 </div>
 
@@ -1737,9 +1646,9 @@
                     <h3><span class="step-number">2</span>Независимые предикторы</h3>
                     <ul>
                         <li>HOMA-IR &gt; 4,0</li>
-                        <li>Уровень лептина &gt; 25 нг/мл</li>
-                        <li>Индекс ROMA &gt; 20% (для постменопаузы)</li>
-                        <li>Окружность талии &gt; 90 см</li>
+                        <li>Лептин &gt; 25 нг/мл</li>
+                        <li>ROMA &gt; 20%</li>
+                        <li>ОТ &gt; 90 см</li>
                     </ul>
                 </div>
 
@@ -1747,18 +1656,16 @@
                     <h3><span class="step-number">3</span>Прогностическая модель</h3>
                     <ul>
                         <li>Математически обоснованная номограмма</li>
-                        <li>AUC &gt; 0,85 (обучающая выборка)</li>
-                        <li>AUC &gt; 0,80 (внутренняя валидация)</li>
-                        <li>Высокая дискриминационная способность</li>
+                        <li>AUC &gt; 0,85 (обучающая)</li>
+                        <li>AUC &gt; 0,80 (валидация)</li>
                     </ul>
                 </div>
 
                 <div class="stats-card stats-final" style="border-left-width: 6px;">
                     <h3>🎯 КЛИНИЧЕСКИЙ КАЛЬКУЛЯТОР РИСКА АГЭ</h3>
                     <p style="font-size: 14px; color: var(--text-medium); margin-top: 8px;">
-                        Внедрение в практику инструмента для расчёта <strong>индивидуального риска</strong> атипической гиперплазии эндометрия<br>
-                        у женщин с метаболическим синдромом<br><br>
-                        <strong>Персонализированный подход к диагностике и лечению</strong>
+                        Внедрение инструмента для расчёта <strong>индивидуального риска</strong> АГЭ<br>
+                        у женщин с метаболическим синдромом
                     </p>
                 </div>
             </div>
@@ -1770,13 +1677,27 @@
         Медицинский институт &nbsp;•&nbsp;
         Кафедра акушерства и гинекологии с курсом перинатологии<br>
         Аспирант: Кравченко В.А. &nbsp;•&nbsp;
-        Научный руководитель: д.м.н., профессор Ордиянц И.М.<br>
-        Специальность: 3.1.4 — акушерство и гинекология
+        Научный руководитель: д.м.н., профессор Ордиянц И.М.
     </div>
 
     <button class="print-btn" onclick="window.print()">🖨️ Печать / PDF</button>
 
+    <!-- Модальное окно для заметок -->
+    <div class="modal-overlay" id="noteModal">
+        <div class="modal-content">
+            <div class="modal-title" id="modalTitle">📝 Заметка</div>
+            <textarea class="modal-textarea" id="noteTextarea" placeholder="Введите комментарий..."></textarea>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-cancel" onclick="closeNoteModal()">Отмена</button>
+                <button class="modal-btn modal-btn-save" onclick="saveNote()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // ============================================================
+        // ТАБЫ
+        // ============================================================
         function openTab(evt, tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -1784,81 +1705,338 @@
             evt.currentTarget.classList.add('active');
         }
 
-        function buildGantt() {
-            const container = document.getElementById('ganttChart');
-            const totalMonths = 36;
+        // ============================================================
+        // ИНТЕРАКТИВНАЯ ДИАГРАММА ГАНТА
+        // ============================================================
+        const STUDY_START_DATE = new Date('2025-09-01');
+        const STORAGE_KEY = 'kravchenko_gantt_progress';
+        let currentEditingTaskId = null;
 
-            const tasks = [
-                { name: 'Литературный обзор', start: 0, dur: 12, color: '#9c27b0' },
-                { name: 'Разработка протокола, этическая экспертиза', start: 0, dur: 4, color: '#7b1fa2' },
-                { name: 'Этап 1: формирование групп, базовое обследование', start: 3, dur: 18, color: '#c2185b' },
-                { name: 'Этап 2: лабораторные исследования', start: 4, dur: 20, color: '#e91e63' },
-                { name: 'Сбор клинико-анамнестических данных', start: 3, dur: 21, color: '#f06292' },
-                { name: 'Морфологическое исследование биоптатов', start: 4, dur: 20, color: '#f8bbd0' },
-                { name: 'Этап 3: статистический анализ', start: 20, dur: 12, color: '#3f51b5' },
-                { name: 'Многомерная логистическая регрессия', start: 22, dur: 10, color: '#5c6bc0' },
-                { name: 'Bootstrap-валидация модели', start: 26, dur: 8, color: '#7986cb' },
-                { name: 'Построение номограммы', start: 28, dur: 6, color: '#9fa8da' },
-                { name: 'Этап 4: внедрение результатов', start: 30, dur: 6, color: '#00838f' },
-                { name: 'Публикации в журналах ВАК / Scopus', start: 18, dur: 16, color: '#ff8a65' },
-                { name: 'Методические рекомендации', start: 30, dur: 5, color: '#a1887f' },
-                { name: 'Оформление диссертации', start: 30, dur: 6, color: '#ff7043' },
-                { name: 'Апробация и защита', start: 34, dur: 2, color: '#66bb6a' },
-            ];
+        const ganttTasks = [
+            { id: 1, name: 'Литературный обзор', start: 0, dur: 12, color: '#9c27b0' },
+            { id: 2, name: 'Разработка протокола, этическая экспертиза', start: 0, dur: 4, color: '#7b1fa2' },
+            { id: 3, name: 'Этап 1: формирование групп, обследование', start: 3, dur: 18, color: '#c2185b' },
+            { id: 4, name: 'Этап 2: лабораторные исследования', start: 4, dur: 20, color: '#e91e63' },
+            { id: 5, name: 'Сбор клинико-анамнестических данных', start: 3, dur: 21, color: '#f06292' },
+            { id: 6, name: 'Морфологическое исследование биоптатов', start: 4, dur: 20, color: '#f8bbd0' },
+            { id: 7, name: 'Этап 3: статистический анализ', start: 20, dur: 12, color: '#3f51b5' },
+            { id: 8, name: 'Многомерная логистическая регрессия', start: 22, dur: 10, color: '#5c6bc0' },
+            { id: 9, name: 'Bootstrap-валидация модели', start: 26, dur: 8, color: '#7986cb' },
+            { id: 10, name: 'Построение номограммы', start: 28, dur: 6, color: '#9fa8da' },
+            { id: 11, name: 'Этап 4: внедрение результатов', start: 30, dur: 6, color: '#00838f' },
+            { id: 12, name: 'Публикации в журналах ВАК / Scopus', start: 18, dur: 16, color: '#ff8a65' },
+            { id: 13, name: 'Методические рекомендации', start: 30, dur: 5, color: '#a1887f' },
+            { id: 14, name: 'Оформление диссертации', start: 30, dur: 6, color: '#ff7043' },
+            { id: 15, name: 'Апробация и защита', start: 34, dur: 2, color: '#66bb6a' }
+        ];
 
-            const yearDiv = document.createElement('div');
-            yearDiv.className = 'gantt-year-labels';
-            yearDiv.innerHTML = `
-                <div></div>
-                <div class="gantt-year">1-й год</div>
-                <div class="gantt-year">2-й год</div>
-                <div class="gantt-year">3-й год</div>
-            `;
-            container.appendChild(yearDiv);
+        let taskProgress = {};
 
-            const headerDiv = document.createElement('div');
-            headerDiv.className = 'gantt-header';
-            headerDiv.innerHTML = '<div class="gantt-header-cell" style="text-align: left; padding-left: 12px; font-weight: 700;">Этап</div>';
-            for (let i = 0; i < totalMonths; i++) {
-                const monthLabel = (i % 12) + 1;
-                headerDiv.innerHTML += `<div class="gantt-header-cell">${monthLabel}</div>`;
-            }
-            container.appendChild(headerDiv);
-
-            tasks.forEach(task => {
-                const row = document.createElement('div');
-                row.className = 'gantt-row';
-
-                const label = document.createElement('div');
-                label.className = 'gantt-label';
-                label.textContent = task.name;
-
-                const barArea = document.createElement('div');
-                barArea.className = 'gantt-bar-area';
-
-                for (let i = 0; i < totalMonths; i++) {
-                    const gridLine = document.createElement('div');
-                    gridLine.className = 'gantt-grid-line' + (i % 12 === 0 ? ' gantt-grid-line-year' : '');
-                    gridLine.style.left = `${(i / totalMonths) * 100}%`;
-                    barArea.appendChild(gridLine);
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    taskProgress = JSON.parse(saved);
                 }
-
-                const bar = document.createElement('div');
-                bar.className = 'gantt-bar';
-                bar.style.left = `${(task.start / totalMonths) * 100}%`;
-                bar.style.width = `${(task.dur / totalMonths) * 100}%`;
-                bar.style.background = task.color;
-                bar.title = `${task.name}: ${task.dur} мес.`;
-
-                barArea.appendChild(bar);
-                row.appendChild(label);
-                row.appendChild(barArea);
-                container.appendChild(row);
+            } catch (e) {
+                taskProgress = {};
+            }
+            ganttTasks.forEach(task => {
+                if (!taskProgress[task.id]) {
+                    taskProgress[task.id] = { percent: 0, note: '' };
+                }
             });
         }
 
+        function saveProgress() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(taskProgress));
+            } catch (e) {
+                console.error('Не удалось сохранить:', e);
+            }
+        }
+
+        function getCurrentMonthOffset() {
+            const now = new Date();
+            const months = (now.getFullYear() - STUDY_START_DATE.getFullYear()) * 12
+                         + (now.getMonth() - STUDY_START_DATE.getMonth());
+            return months + (now.getDate() / 30);
+        }
+
+        function getTaskStatus(task) {
+            const percent = taskProgress[task.id].percent;
+            const currentMonth = getCurrentMonthOffset();
+            const taskEnd = task.start + task.dur;
+            if (percent >= 100) return 'completed';
+            if (currentMonth > taskEnd && percent < 100) return 'overdue';
+            if (percent > 0) return 'in-progress';
+            return 'not-started';
+        }
+
+        function getStatusIcon(status) {
+            const icons = {
+                'completed': '✅',
+                'in-progress': '🔄',
+                'overdue': '🚨',
+                'not-started': '⏳'
+            };
+            return icons[status] || '⏳';
+        }
+
+        function getProgressColor(percent, status) {
+            if (status === 'overdue') return '#ef5350';
+            if (percent >= 100) return '#66bb6a';
+            if (percent > 0) return '#ffb74d';
+            return '#e0e0e0';
+        }
+
+        function buildInteractiveGantt() {
+            loadProgress();
+            const container = document.getElementById('ganttChartInteractive');
+            if (!container) return;
+
+            container.innerHTML = '';
+            const totalMonths = 36;
+
+            // Годы
+            const yearDiv = document.createElement('div');
+            yearDiv.className = 'gantt-year-labels-int';
+            yearDiv.innerHTML = `
+                <div></div>
+                <div></div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr);">
+                    <div class="gantt-year-int">1-й год</div>
+                    <div class="gantt-year-int">2-й год</div>
+                    <div class="gantt-year-int">3-й год</div>
+                </div>
+                <div></div>
+            `;
+            container.appendChild(yearDiv);
+
+            // Заголовок с месяцами
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'gantt-header-int';
+
+            const monthsRow = document.createElement('div');
+            monthsRow.className = 'gantt-months-row';
+            for (let i = 0; i < totalMonths; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'gantt-month-cell';
+                cell.textContent = (i % 12) + 1;
+                monthsRow.appendChild(cell);
+            }
+
+            headerDiv.innerHTML = `
+                <div style="padding-left: 12px;">Этап</div>
+                <div style="text-align: center;">Прогресс</div>
+            `;
+            headerDiv.appendChild(monthsRow);
+            headerDiv.innerHTML += `<div style="text-align: center;">Заметка</div>`;
+            container.appendChild(headerDiv);
+
+            // Строки задач
+            ganttTasks.forEach(task => {
+                const status = getTaskStatus(task);
+                const percent = taskProgress[task.id].percent;
+                const hasNote = taskProgress[task.id].note && taskProgress[task.id].note.length > 0;
+
+                const row = document.createElement('div');
+                row.className = 'gantt-row-interactive';
+                if (status === 'completed') row.classList.add('completed');
+                if (status === 'overdue') row.classList.add('overdue');
+
+                // 1. Название
+                const label = document.createElement('div');
+                label.className = 'gantt-task-label';
+                label.innerHTML = `
+                    <span class="task-status-icon">${getStatusIcon(status)}</span>
+                    <span>${task.name}</span>
+                `;
+                row.appendChild(label);
+
+                // 2. Процент
+                const percentControl = document.createElement('div');
+                percentControl.className = 'gantt-percent-control';
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.className = 'percent-input';
+                if (percent >= 100) input.classList.add('completed');
+                input.min = 0;
+                input.max = 100;
+                input.value = percent;
+                input.addEventListener('change', (e) => {
+                    let val = parseInt(e.target.value) || 0;
+                    val = Math.max(0, Math.min(100, val));
+                    taskProgress[task.id].percent = val;
+                    saveProgress();
+                    buildInteractiveGantt();
+                });
+                percentControl.appendChild(input);
+                const sym = document.createElement('span');
+                sym.className = 'percent-symbol';
+                sym.textContent = '%';
+                percentControl.appendChild(sym);
+                row.appendChild(percentControl);
+
+                // 3. Полоса прогресса
+                const barArea = document.createElement('div');
+                barArea.className = 'gantt-bar-area-int';
+
+                for (let i = 0; i < totalMonths; i++) {
+                    const gl = document.createElement('div');
+                    gl.className = 'gantt-grid-line-int' + (i % 12 === 0 ? ' gantt-grid-line-year-int' : '');
+                    gl.style.left = `${(i / totalMonths) * 100}%`;
+                    barArea.appendChild(gl);
+                }
+
+                const barBg = document.createElement('div');
+                barBg.className = 'gantt-bar-bg';
+                barBg.style.left = `${(task.start / totalMonths) * 100}%`;
+                barBg.style.width = `${(task.dur / totalMonths) * 100}%`;
+                barBg.style.background = task.color;
+                barArea.appendChild(barBg);
+
+                const barProgress = document.createElement('div');
+                barProgress.className = 'gantt-bar-progress';
+                barProgress.style.left = `${(task.start / totalMonths) * 100}%`;
+                barProgress.style.width = `${(task.dur / totalMonths) * (percent / 100) * 100}%`;
+                barProgress.style.background = getProgressColor(percent, status);
+                barProgress.title = `${task.name}: ${percent}%`;
+                if (percent > 10) {
+                    const sp = document.createElement('span');
+                    sp.textContent = percent + '%';
+                    barProgress.appendChild(sp);
+                }
+                barArea.appendChild(barProgress);
+
+                // Линия "сегодня"
+                const offset = getCurrentMonthOffset();
+                if (offset >= 0 && offset <= totalMonths) {
+                    const todayLine = document.createElement('div');
+                    todayLine.className = 'gantt-current-date-line';
+                    todayLine.style.left = `${(offset / totalMonths) * 100}%`;
+                    barArea.appendChild(todayLine);
+                }
+
+                row.appendChild(barArea);
+
+                // 4. Кнопка заметки
+                const noteBtn = document.createElement('button');
+                noteBtn.className = 'gantt-note-btn';
+                if (hasNote) noteBtn.classList.add('has-note');
+                noteBtn.textContent = hasNote ? '📝 Есть' : '💬';
+                noteBtn.onclick = () => openNoteModal(task.id, task.name);
+                row.appendChild(noteBtn);
+
+                container.appendChild(row);
+            });
+
+            updateOverallProgress();
+        }
+
+        function updateOverallProgress() {
+            const total = ganttTasks.length;
+            let sumP = 0, notStarted = 0, inProgress = 0, completed = 0, overdue = 0;
+
+            ganttTasks.forEach(task => {
+                const status = getTaskStatus(task);
+                const p = taskProgress[task.id].percent;
+                sumP += p;
+                if (status === 'completed') completed++;
+                else if (status === 'overdue') overdue++;
+                else if (status === 'in-progress') inProgress++;
+                else notStarted++;
+            });
+
+            const overall = Math.round(sumP / total);
+            const percentEl = document.getElementById('overallProgressPercent');
+            const fillEl = document.getElementById('overallProgressFill');
+            const statsEl = document.getElementById('overallProgressStats');
+            const dateEl = document.getElementById('reportDate');
+
+            if (percentEl) percentEl.textContent = overall + '%';
+            if (fillEl) fillEl.style.width = overall + '%';
+            if (statsEl) statsEl.innerHTML =
+                `⏳ Не начато: <strong>${notStarted}</strong> &nbsp;•&nbsp; ` +
+                `🔄 В процессе: <strong>${inProgress}</strong> &nbsp;•&nbsp; ` +
+                `✅ Выполнено: <strong>${completed}</strong> &nbsp;•&nbsp; ` +
+                `🚨 Просрочено: <strong>${overdue}</strong>`;
+            if (dateEl) dateEl.textContent = new Date().toLocaleString('ru-RU', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit'
+            });
+        }
+
+        function openNoteModal(taskId, taskName) {
+            currentEditingTaskId = taskId;
+            document.getElementById('modalTitle').innerHTML = `📝 Заметка:<br>${taskName}`;
+            document.getElementById('noteTextarea').value = taskProgress[taskId].note || '';
+            document.getElementById('noteModal').classList.add('active');
+            setTimeout(() => document.getElementById('noteTextarea').focus(), 100);
+        }
+
+        function closeNoteModal() {
+            document.getElementById('noteModal').classList.remove('active');
+            currentEditingTaskId = null;
+        }
+
+        function saveNote() {
+            if (currentEditingTaskId !== null) {
+                taskProgress[currentEditingTaskId].note = document.getElementById('noteTextarea').value;
+                saveProgress();
+                buildInteractiveGantt();
+            }
+            closeNoteModal();
+        }
+
+        function exportProgress() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                author: 'Кравченко В.А.',
+                thesis: 'Прогнозирование развития АГЭ при МС',
+                progress: taskProgress
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `progress_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importProgress(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.progress) {
+                        taskProgress = data.progress;
+                        saveProgress();
+                        buildInteractiveGantt();
+                        alert('✅ Прогресс импортирован!\nДата: ' + new Date(data.timestamp).toLocaleString('ru-RU'));
+                    } else {
+                        alert('❌ Неверный формат файла');
+                    }
+                } catch (err) {
+                    alert('❌ Ошибка: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function resetProgress() {
+            if (confirm('⚠️ Сбросить весь прогресс?\nЭто действие нельзя отменить!')) {
+                localStorage.removeItem(STORAGE_KEY);
+                taskProgress = {};
+                buildInteractiveGantt();
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            buildGantt();
+            buildInteractiveGantt();
         });
     </script>
 
