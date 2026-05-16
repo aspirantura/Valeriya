@@ -1616,14 +1616,74 @@
 
     <!-- ТАБ 7: ДИАГРАММА ГАНТА -->
     <div id="tab7" class="tab-content">
-        <div class="section-title-wrap">
-            <span class="section-title">ВРЕМЕННАЯ ШКАЛА ИССЛЕДОВАНИЯ</span>
+    <div class="section-title-wrap">
+        <span class="section-title">📅 ИНТЕРАКТИВНАЯ ДИАГРАММА ГАНТА</span>
+    </div>
+
+    <div class="important-note">
+        <strong>💡 Инструкция:</strong> Для каждой задачи укажите процент выполнения (0–100%) или измените статус. 
+        Данные автоматически сохраняются в браузере. Используйте кнопки <strong>«Экспорт»</strong> и <strong>«Импорт»</strong>, 
+        чтобы передавать прогресс между устройствами или научному руководителю.
+    </div>
+
+    <!-- Панель управления и общий прогресс -->
+    <div class="gantt-controls">
+        <div class="overall-progress-section">
+            <div class="overall-progress-label">
+                <span>🎯 Общий прогресс диссертации</span>
+                <span class="overall-progress-percent" id="overallProgressPercent">0%</span>
+            </div>
+            <div class="overall-progress-bar">
+                <div class="overall-progress-fill" id="overallProgressFill" style="width: 0%;"></div>
+            </div>
+            <div class="overall-progress-stats" id="overallProgressStats">
+                Не начато: 15 • В процессе: 0 • Выполнено: 0 • Просрочено: 0
+            </div>
         </div>
 
-        <div class="gantt-container">
-            <div class="gantt-chart" id="ganttChart"></div>
+        <div class="gantt-buttons">
+            <button class="control-btn btn-export" onclick="exportProgress()">📤 Экспорт</button>
+            <button class="control-btn btn-import" onclick="document.getElementById('importFile').click()">📥 Импорт</button>
+            <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importProgress(event)">
+            <button class="control-btn btn-print" onclick="window.print()">🖨️ Печать отчёта</button>
+            <button class="control-btn btn-reset" onclick="resetProgress()">🔄 Сбросить</button>
         </div>
     </div>
+
+    <!-- Дата отчёта -->
+    <div class="report-date">
+        Отчёт сформирован: <span id="reportDate"></span>
+    </div>
+
+    <!-- Сама диаграмма -->
+    <div class="gantt-container">
+        <div class="gantt-chart-interactive" id="ganttChartInteractive"></div>
+    </div>
+
+    <!-- Легенда -->
+    <div class="gantt-legend">
+        <div class="legend-item-gantt">
+            <div class="legend-color-box" style="background: #e0e0e0;"></div>
+            <span>Не начато (0%)</span>
+        </div>
+        <div class="legend-item-gantt">
+            <div class="legend-color-box" style="background: #ffb74d;"></div>
+            <span>В процессе (1–99%)</span>
+        </div>
+        <div class="legend-item-gantt">
+            <div class="legend-color-box" style="background: #66bb6a;"></div>
+            <span>Выполнено (100%)</span>
+        </div>
+        <div class="legend-item-gantt">
+            <div class="legend-color-box" style="background: #ef5350;"></div>
+            <span>Просрочено</span>
+        </div>
+        <div class="legend-item-gantt">
+            <div class="legend-color-box" style="background: #c62828; width: 4px;"></div>
+            <span>Текущая дата</span>
+        </div>
+    </div>
+</div>
 
     <!-- ТАБ 8: ИНФОГРАФИКА -->
     <div id="tab8" class="tab-content">
