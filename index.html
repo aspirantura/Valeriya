@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дизайн исследования — Прогнозирование АГЭ у женщин с МС</title>
+    <style>
+        :root {
+            --primary: #880e4f;
+            --primary-light: #ad1457;
+            --screening: #6a1b9a;
+            --screening-bg: #f3e5f5;
+            --inclusion: #2e7d32;
+            --inclusion-bg: #e8f5e9;
+            --exclusion: #c62828;
+            --exclusion-bg: #ffebee;
+            --group1: #c2185b;
+            --group1-bg: #fce4ec;
+            --group2: #f57c00;
+            --group2-bg: #fff3e0;
+            --group3: #00838f;
+            --group3-bg: #e0f7fa;
+            --timepoint: #1565c0;
+            --timepoint-bg: #e3f2fd;
+            --analysis: #283593;
+            --analysis-bg: #e8eaf6;
+            --result: #00695c;
+            --result-bg: #e0f2f1;
+            --metabolic: #6a1b9a;
+            --metabolic-bg: #f3e5f5;
+            --inflammation: #d84315;
+            --inflammation-bg: #fbe9e7;
+            --oncology: #c2185b;
+            --oncology-bg: #fce4ec;
+            --hormone: #00695c;
+            --hormone-bg: #e0f2f1;
+            --text-dark: #212121;
+            --text-medium: #424242;
+            --text-light: #757575;
+            --shadow: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.18);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .tabs-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(136, 14, 79, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+
+        .tabs-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.75);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            border-bottom-color: #ffc107;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .tab-content {
+            display: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 40px 20px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .page-title .subtitle {
+            font-size: 16px;
+            color: var(--text-medium);
+            font-style: italic;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .page-title .info {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+
+        .section-title-wrap { text-align: center; margin-bottom: 10px; }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .flow-box {
+            border-radius: var(--radius);
+            padding: 16px 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .flow-box:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .flow-box h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .flow-box p, .flow-box ul {
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        .flow-box ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .flow-box ul li::before {
+            content: "• ";
+            color: inherit;
+            font-weight: bold;
+        }
+
+        .box-screening { background: var(--screening-bg); border: 2px solid var(--screening); }
+        .box-screening h3 { color: var(--screening); }
+
+        .box-inclusion { background: var(--inclusion-bg); border: 2px solid var(--inclusion); }
+        .box-inclusion h3 { color: var(--inclusion); }
+
+        .box-exclusion { background: var(--exclusion-bg); border: 2px solid var(--exclusion); }
+        .box-exclusion h3 { color: var(--exclusion); }
+
+        .box-group1 { background: var(--group1-bg); border: 2px solid var(--group1); }
+        .box-group1 h3 { color: var(--group1); }
+
+        .box-group2 { background: var(--group2-bg); border: 2px solid var(--group2); }
+        .box-group2 h3 { color: var(--group2); }
+
+        .box-group3 { background: var(--group3-bg); border: 2px solid var(--group3); }
+        .box-group3 h3 { color: var(--group3); }
+
+        .box-timepoint { background: var(--timepoint-bg); border: 2px solid var(--timepoint); }
+        .box-timepoint h3 { color: var(--timepoint); }
+
+        .box-analysis { background: var(--analysis-bg); border: 2px solid var(--analysis); }
+        .box-analysis h3 { color: var(--analysis); }
+
+        .box-result { background: var(--result-bg); border: 2px solid var(--result); }
+        .box-result h3 { color: var(--result); }
+
+        .flow-arrow {
+            width: 3px;
+            height: 30px;
+            background: var(--text-light);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .flow-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 10px solid var(--text-light);
+        }
+
+        .flow-arrow-short { height: 20px; }
+
+        .flow-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .flow-row .flow-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 380px;
+        }
+
+        .matrix-table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            min-width: 800px;
+        }
+
+        .matrix-table th {
+            padding: 12px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .matrix-table th.col-header {
+            background: var(--primary);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .matrix-table th.col-header-g1 {
+            background: var(--group1);
+            color: #fff;
+        }
+
+        .matrix-table th.col-header-g2 {
+            background: var(--group2);
+            color: #fff;
+        }
+
+        .matrix-table th.col-header-g3 {
+            background: var(--group3);
+            color: #fff;
+        }
+
+        .matrix-table th.row-header {
+            background: #f5f5f5;
+            color: var(--text-dark);
+            text-align: left;
+            padding-left: 16px;
+            font-weight: 600;
+            border: 1px solid #e0e0e0;
+            min-width: 220px;
+        }
+
+        .matrix-table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .matrix-table tr:hover td { background: #fafafa; }
+
+        .cell-yes { background: #c8e6c9; color: #1b5e20; font-weight: bold; }
+        .cell-no { background: #ffebee; color: #b71c1c; }
+        .cell-optional { background: #fff8e1; color: #f57f17; font-weight: bold; }
+
+        .matrix-legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .markers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .marker-card {
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid;
+        }
+
+        .marker-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .marker-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .marker-card p {
+            font-size: 13px;
+            color: var(--text-medium);
+            line-height: 1.55;
+        }
+
+        .marker-card .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 8px;
+            margin-right: 4px;
+        }
+
+        .group-metabolic {
+            background: var(--metabolic-bg);
+            border-left-color: var(--metabolic);
+        }
+        .group-metabolic h3 { color: var(--metabolic); }
+
+        .group-inflammation {
+            background: var(--inflammation-bg);
+            border-left-color: var(--inflammation);
+        }
+        .group-inflammation h3 { color: var(--inflammation); }
+
+        .group-oncology {
+            background: var(--oncology-bg);
+            border-left-color: var(--oncology);
+        }
+        .group-oncology h3 { color: var(--oncology); }
+
+        .group-hormone {
+            background: var(--hormone-bg);
+            border-left-color: var(--hormone);
+        }
+        .group-hormone h3 { color: var(--hormone); }
+
+        .stage-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            margin: 15px 0;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .stage-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateX(5px);
+        }
+
+        .stage-card h3 {
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .stage-card p, .stage-card ul {
+            font-size: 13.5px;
+            color: var(--text-medium);
+        }
+
+        .stage-card ul {
+            margin-left: 50px;
+            margin-top: 8px;
+        }
+
+        .gantt-container { overflow-x: auto; margin: 20px 0; }
+
+        .gantt-chart {
+            min-width: 900px;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 250px repeat(36, 1fr);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .gantt-header-cell {
+            font-size: 10px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .gantt-year-labels {
+            display: grid;
+            grid-template-columns: 250px repeat(3, 1fr);
+            margin-bottom: 5px;
+        }
+
+        .gantt-year {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            padding: 8px;
+            border-left: 2px dashed rgba(136,14,79,0.3);
+        }
+
+        .gantt-year:first-child { border-left: none; }
+
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            align-items: center;
+            min-height: 38px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .gantt-row:hover { background: #fafafa; }
+
+        .gantt-label {
+            font-size: 12px;
+            padding: 6px 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .gantt-bar-area {
+            position: relative;
+            height: 28px;
+        }
+
+        .gantt-bar {
+            position: absolute;
+            height: 24px;
+            top: 2px;
+            border-radius: 12px;
+            opacity: 0.85;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gantt-bar:hover {
+            opacity: 1;
+            transform: scaleY(1.15);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .gantt-grid-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(136,14,79,0.1);
+        }
+
+        .gantt-grid-line-year {
+            background: rgba(136,14,79,0.3);
+            width: 2px;
+        }
+
+        .groups-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .tree-card {
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            min-width: 220px;
+        }
+
+        .tree-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .tree-connector {
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .tree-connector-line {
+            width: 3px;
+            height: 100%;
+            background: var(--text-light);
+            position: relative;
+        }
+
+        .tree-connector-line::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 9px solid var(--text-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-card {
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: #fff;
+            border-left: 5px solid;
+        }
+
+        .stats-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .stats-card .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .stats-card h3 {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .stats-card ul {
+            list-style: none;
+            padding: 0;
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        .stats-card ul li { padding: 3px 0; }
+        .stats-card ul li::before { content: "→ "; font-weight: bold; }
+
+        .stats-card.s1 { border-left-color: #1565c0; }
+        .stats-card.s1 .step-number { background: #1565c0; }
+        .stats-card.s2 { border-left-color: #2e7d32; }
+        .stats-card.s2 .step-number { background: #2e7d32; }
+        .stats-card.s3 { border-left-color: #e65100; }
+        .stats-card.s3 .step-number { background: #e65100; }
+        .stats-card.s4 { border-left-color: #6a1b9a; }
+        .stats-card.s4 .step-number { background: #6a1b9a; }
+        .stats-card.s5 { border-left-color: #c2185b; }
+        .stats-card.s5 .step-number { background: #c2185b; }
+        .stats-card.s6 { border-left-color: #283593; }
+        .stats-card.s6 .step-number { background: #283593; }
+        .stats-card.s7 { border-left-color: #00695c; }
+        .stats-card.s7 .step-number { background: #00695c; }
+
+        .stats-final {
+            grid-column: 1 / -1;
+            background: var(--result-bg);
+            border: 2px solid var(--result);
+            border-left: 5px solid var(--result);
+            text-align: center;
+        }
+
+        .stats-final h3 {
+            justify-content: center;
+            font-size: 17px;
+            color: var(--result);
+        }
+
+        .stats-software {
+            grid-column: 1 / -1;
+            background: #eceff1;
+            border-left-color: #455a64;
+            text-align: center;
+        }
+
+        .infographic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid;
+        }
+
+        .info-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .info-card .big-number {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .info-card .info-label {
+            font-size: 14px;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .info-card.c1 { border-top-color: #c2185b; }
+        .info-card.c1 .big-number { color: #c2185b; }
+        .info-card.c2 { border-top-color: #f57c00; }
+        .info-card.c2 .big-number { color: #f57c00; }
+        .info-card.c3 { border-top-color: #00838f; }
+        .info-card.c3 .big-number { color: #00838f; }
+        .info-card.c4 { border-top-color: #6a1b9a; }
+        .info-card.c4 .big-number { color: #6a1b9a; }
+        .info-card.c5 { border-top-color: #2e7d32; }
+        .info-card.c5 .big-number { color: #2e7d32; }
+        .info-card.c6 { border-top-color: #c62828; }
+        .info-card.c6 .big-number { color: #c62828; }
+
+        .algorithm-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .algorithm-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .algorithm-card.low-risk {
+            border-left: 6px solid #2e7d32;
+            background: linear-gradient(to right, #e8f5e9 0%, #fff 30%);
+        }
+
+        .algorithm-card.medium-risk {
+            border-left: 6px solid #f57c00;
+            background: linear-gradient(to right, #fff3e0 0%, #fff 30%);
+        }
+
+        .algorithm-card.high-risk {
+            border-left: 6px solid #c62828;
+            background: linear-gradient(to right, #ffebee 0%, #fff 30%);
+        }
+
+        .algorithm-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .algorithm-card.low-risk h3 { color: #2e7d32; }
+        .algorithm-card.medium-risk h3 { color: #f57c00; }
+        .algorithm-card.high-risk h3 { color: #c62828; }
+
+        .algorithm-card p {
+            font-size: 13.5px;
+            color: var(--text-medium);
+        }
+
+        .risk-percent {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-light);
+            font-size: 13px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+
+        .note {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge-primary { background: #fce4ec; color: #c2185b; }
+        .badge-success { background: #e8f5e9; color: #2e7d32; }
+        .badge-warning { background: #fff3e0; color: #e65100; }
+        .badge-danger { background: #ffebee; color: #c62828; }
+        .badge-purple { background: #f3e5f5; color: #6a1b9a; }
+        .badge-info { background: #e0f7fa; color: #00838f; }
+
+        .important-note {
+            background: #fff8e1;
+            border-left: 4px solid #f57f17;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin: 15px auto;
+            max-width: 900px;
+            font-size: 13.5px;
+            color: #5d4037;
+            line-height: 1.55;
+        }
+
+        .important-note strong { color: #e65100; }
+
+        .formula-box {
+            background: #f5f5f5;
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .print-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 { font-size: 20px; }
+            .tab-btn { padding: 10px 12px; font-size: 11px; }
+            .flow-row { flex-direction: column; align-items: center; }
+            .markers-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .infographic-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media print {
+            .tabs-container { display: none; }
+            .print-btn { display: none; }
+            .tab-content { display: block !important; page-break-after: always; }
+            body { background: #fff; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-title">
+        <h1>ДИЗАЙН ДИССЕРТАЦИОННОГО ИССЛЕДОВАНИЯ</h1>
+        <div class="subtitle">
+            «Прогнозирование развития атипической гиперплазии эндометрия<br>
+            у женщин с метаболическим синдромом»
+        </div>
+        <div class="info">
+            Аспирант: Кравченко В.А. &nbsp;•&nbsp;
+            Научный руководитель: д.м.н., проф. Ордиянц И.М.<br>
+            Медицинский институт РУДН имени Патриса Лумумбы &nbsp;•&nbsp;
+            Кафедра акушерства и гинекологии с курсом перинатологии<br>
+            Специальность: 3.1.4 — акушерство и гинекология
+        </div>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="openTab(event, 'tab1')">📋 Блок-схема</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab2')">👥 Структура групп</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab3')">🔬 Маркеры</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab4')">📊 Программа</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab5')">📈 Стат. анализ</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab6')">🎯 Алгоритм</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab7')">📅 Диаграмма Ганта</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab8')">📊 Инфографика</button>
+        </div>
+    </div>
+
+    <!-- ТАБ 1: БЛОК-СХЕМА -->
+    <div id="tab1" class="tab-content active">
+        <div class="section-title-wrap">
+            <span class="section-title">БЛОК-СХЕМА ДИЗАЙНА ИССЛЕДОВАНИЯ</span>
+        </div>
+        <p class="text-center mb-20" style="color: var(--screening); font-weight: 600;">
+            Проспективное одноцентровое когортное исследование с элементами «случай-контроль»<br>
+            Вложенная когорта (nested case-control study) в рамках проспективно наблюдаемой группы
+        </p>
+
+        <div class="important-note">
+            <strong>🎯 Ключевая цель:</strong> Разработка прогностической математической модели для расчёта индивидуального риска АГЭ на основе комбинации <strong>метаболических (HOMA-IR, лептин)</strong> и <strong>онкологических (HE4, индекс ROMA)</strong> сывороточных маркеров с дальнейшим внедрением дифференцированного клинического алгоритма ведения пациенток.
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-box box-screening" style="max-width: 550px;">
+                <h3>СКРИНИНГ И ОТБОР</h3>
+                <p>Женщины 35–55 лет, находящиеся на обследовании и лечении в гинекологическом и эндокринологическом отделениях</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <div class="flow-row">
+                <div class="flow-box box-inclusion">
+                    <h3>✅ КРИТЕРИИ ВКЛЮЧЕНИЯ</h3>
+                    <ul>
+                        <li>Возраст 35–55 лет</li>
+                        <li>Верифицированный МС по критериям IDF (2005)</li>
+                        <li>Окружность талии (ОТ) ≥ 80 см</li>
+                        <li>Морфологически подтверждённый диагноз эндометрия (≤ 3 мес. до включения)</li>
+                        <li>Информированное согласие</li>
+                    </ul>
+                </div>
+                <div class="flow-box box-exclusion">
+                    <h3>❌ КРИТЕРИИ НЕВКЛЮЧЕНИЯ</h3>
+                    <ul>
+                        <li>Рак эндометрия или др. онкология в анамнезе</li>
+                        <li>Гормональная терапия за последние 6 мес.</li>
+                        <li>Беременность, лактация, планирование</li>
+                        <li>Тяжёлая декомпенсированная патология</li>
+                        <li>Острые/обострение хронических заболеваний</li>
+                        <li>ВМС &lt; 12 мес., операции на матке в анамнезе</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <div class="flow-box box-screening" style="max-width: 400px;">
+                <h3>ВКЛЮЧЁНО ПАЦИЕНТОК</h3>
+                <p style="font-size: 22px; font-weight: 800; color: var(--screening);">N = 135</p>
+                <p style="font-size: 12px;">по 45 человек в каждой группе</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <div class="flow-row">
+                <div class="flow-box box-group1">
+                    <h3>ГРУППА 1 (n = 45)</h3>
+                    <p><strong>МС + АГЭ</strong><br>
+                    Атипическая гиперплазия эндометрия (простая или сложная с атипией)</p>
+                </div>
+                <div class="flow-box box-group2">
+                    <h3>ГРУППА 2 (n = 45)</h3>
+                    <p><strong>МС + ГЭ без атипии</strong><br>
+                    Гиперплазия эндометрия без атипии (простая или сложная)</p>
+                </div>
+                <div class="flow-box box-group3">
+                    <h3>ГРУППА 3 (n = 45)</h3>
+                    <p><strong>МС без патологии эндометрия (контроль)</strong><br>
+                    Отсутствие патологии по УЗИ и/или пайпель-биопсии</p>
+                </div>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- ЭТАП 1 -->
+            <div class="flow-box box-timepoint" style="max-width: 700px;">
+                <h3>ЭТАП 1 — БАЗОВОЕ ОБСЛЕДОВАНИЕ</h3>
+                <p style="margin-top: 8px;">
+                    <span class="badge badge-info">Информированное согласие</span>
+                    <span class="badge badge-info">Сбор анамнеза</span>
+                    <span class="badge badge-info">Антропометрия</span>
+                    <span class="badge badge-info">Трансвагинальное УЗИ</span>
+                </p>
+            </div>
+
+            <div class="flow-arrow flow-arrow-short"></div>
+
+            <!-- ЭТАП 2 -->
+            <div class="flow-box box-timepoint" style="max-width: 750px;">
+                <h3>ЭТАП 2 — ЛАБОРАТОРНОЕ ОБСЛЕДОВАНИЕ</h3>
+                <p style="margin-top: 8px; font-size: 12px;">Венозная кровь натощак — единая лаборатория</p>
+                <div style="margin-top: 10px;">
+                    <strong style="color: var(--metabolic);">🧪 Метаболический профиль:</strong><br>
+                    <span class="badge badge-purple">Глюкоза</span>
+                    <span class="badge badge-purple">Инсулин → HOMA-IR</span>
+                    <span class="badge badge-purple">Липидный спектр</span>
+                </div>
+                <div style="margin-top: 8px;">
+                    <strong style="color: var(--inflammation);">🔥 Дисфункция жировой ткани + воспаление:</strong><br>
+                    <span class="badge" style="background:#fbe9e7;color:#d84315;">Лептин</span>
+                    <span class="badge" style="background:#fbe9e7;color:#d84315;">Адипонектин</span>
+                    <span class="badge" style="background:#fbe9e7;color:#d84315;">hs-CRP</span>
+                </div>
+                <div style="margin-top: 8px;">
+                    <strong style="color: var(--oncology);">🎗 Онкомаркеры:</strong><br>
+                    <span class="badge badge-primary">HE4</span>
+                    <span class="badge badge-primary">CA-125</span>
+                    <span class="badge badge-primary">Индекс ROMA</span>
+                </div>
+                <div style="margin-top: 8px;">
+                    <strong style="color: var(--hormone);">⚖️ Гормональный профиль:</strong><br>
+                    <span class="badge" style="background:#e0f2f1;color:#00695c;">Эстрадиол</span>
+                    <span class="badge" style="background:#e0f2f1;color:#00695c;">Тестостерон</span>
+                    <span class="badge" style="background:#e0f2f1;color:#00695c;">ГСПГ → ИСА</span>
+                    <span class="badge" style="background:#e0f2f1;color:#00695c;">ФСГ</span>
+                    <span class="badge" style="background:#e0f2f1;color:#00695c;">ЛГ</span>
+                </div>
+            </div>
+
+            <div class="flow-arrow flow-arrow-short"></div>
+
+            <!-- ЭТАП 3 -->
+            <div class="flow-box box-analysis" style="max-width: 750px;">
+                <h3>ЭТАП 3 — СТАТИСТИЧЕСКИЙ АНАЛИЗ И МОДЕЛИРОВАНИЕ</h3>
+                <p style="margin-top: 8px;">
+                    Проверка нормальности (Шапиро-Уилка) • Сравнение групп (ANOVA / Краскела-Уоллиса)<br>
+                    Корреляции (Спирмен/Пирсон) • Многомерная логистическая регрессия<br>
+                    Внутренняя валидация (bootstrap) • ROC-анализ, AUC, Se, Sp<br>
+                    <strong>Построение номограммы</strong>
+                </p>
+            </div>
+
+            <div class="flow-arrow flow-arrow-short"></div>
+
+            <!-- ЭТАП 4 -->
+            <div class="flow-box box-result" style="max-width: 750px; border-width: 3px;">
+                <h3>🎯 ЭТАП 4 — ВНЕДРЕНИЕ И КЛИНИЧЕСКИЙ АЛГОРИТМ</h3>
+                <p style="margin-top: 10px;">
+                    <strong>Прогностическая модель</strong> для расчёта индивидуального риска АГЭ<br>
+                    <strong>Дифференцированный алгоритм</strong> ведения пациенток:
+                </p>
+                <div style="margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <span class="badge" style="background:#c8e6c9;color:#1b5e20;font-size:12px;padding:5px 12px;">Низкий риск (&lt;5%) → консервативно</span>
+                    <span class="badge" style="background:#ffe082;color:#e65100;font-size:12px;padding:5px 12px;">Средний (5-30%) → гистероскопия</span>
+                    <span class="badge" style="background:#ffcdd2;color:#b71c1c;font-size:12px;padding:5px 12px;">Высокий (&gt;30%) → гистерэктомия</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТАБ 2: СТРУКТУРА ГРУПП -->
+    <div id="tab2" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">СТРУКТУРА ИССЛЕДУЕМЫХ ГРУПП</span>
+        </div>
+        <p class="text-center mb-20" style="font-size: 16px; color: var(--text-medium);">
+            N = 135 женщин в возрасте 35–55 лет с метаболическим синдромом
+        </p>
+
+        <div class="groups-tree">
+            <div class="tree-level">
+                <div class="tree-card box-screening" style="min-width: 320px;">
+                    <h3 style="color: var(--screening); font-size: 18px;">ВСЕ ВКЛЮЧЁННЫЕ ПАЦИЕНТКИ</h3>
+                    <p style="font-size: 28px; font-weight: 800; color: var(--screening);">N = 135</p>
+                    <p style="font-size: 13px;">Женщины с метаболическим синдромом<br>Критерии IDF (2005)</p>
+                </div>
+            </div>
+
+            <div class="tree-connector"><div class="tree-connector-line"></div></div>
+
+            <div class="tree-level">
+                <div class="tree-card box-group1" style="flex: 1; max-width: 320px;">
+                    <h3 style="color: var(--group1); font-size: 16px;">ГРУППА 1 — МС + АГЭ</h3>
+                    <p style="font-size: 28px; font-weight: 800; color: var(--group1);">n = 45</p>
+                    <p style="font-size: 12.5px;">
+                        Атипическая гиперплазия<br>
+                        (простая или сложная с атипией)<br>
+                        <em>Случаи</em>
+                    </p>
+                </div>
+                <div class="tree-card box-group2" style="flex: 1; max-width: 320px;">
+                    <h3 style="color: var(--group2); font-size: 16px;">ГРУППА 2 — МС + ГЭ</h3>
+                    <p style="font-size: 28px; font-weight: 800; color: var(--group2);">n = 45</p>
+                    <p style="font-size: 12.5px;">
+                        Гиперплазия без атипии<br>
+                        (простая или сложная)<br>
+                        <em>Группа сравнения</em>
+                    </p>
+                </div>
+                <div class="tree-card box-group3" style="flex: 1; max-width: 320px;">
+                    <h3 style="color: var(--group3); font-size: 16px;">ГРУППА 3 — МС (контроль)</h3>
+                    <p style="font-size: 28px; font-weight: 800; color: var(--group3);">n = 45</p>
+                    <p style="font-size: 12.5px;">
+                        МС без патологии эндометрия<br>
+                        (УЗИ + пайпель-биопсия)<br>
+                        <em>Контроль</em>
+                    </p>
+                </div>
+            </div>
+
+            <div class="tree-connector"><div class="tree-connector-line"></div></div>
+
+            <div class="tree-level">
+                <div class="tree-card box-analysis" style="max-width: 800px; width: 100%;">
+                    <h3 style="color: var(--analysis); font-size: 14px;">ОБОСНОВАНИЕ РАЗМЕРА ВЫБОРКИ</h3>
+                    <p style="font-size: 13px; text-align: left; padding: 10px 15px;">
+                        <strong>Мощность (1-β) = 80%</strong> &nbsp;•&nbsp;
+                        <strong>α = 0,05</strong> (двусторонний) &nbsp;•&nbsp;
+                        <strong>Ожидаемый эффект OR = 3,0</strong><br>
+                        Формирование групп: сплошная выборка → рандомизированный отбор в контрольную группу<br>
+                        <strong>Итого: 45 × 3 = 135 пациенток</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="tree-connector"><div class="tree-connector-line"></div></div>
+
+            <div class="tree-level">
+                <div class="tree-card box-inclusion" style="flex: 1; max-width: 500px;">
+                    <h3 style="color: var(--inclusion); font-size: 14px;">ОБЩИЕ КРИТЕРИИ ВКЛЮЧЕНИЯ</h3>
+                    <ul style="font-size: 12.5px; text-align: left; padding: 5px 15px 0;">
+                        <li>✓ Возраст 35–55 лет</li>
+                        <li>✓ Верифицированный МС (IDF 2005)</li>
+                        <li>✓ ОТ ≥ 80 см</li>
+                        <li>✓ Морфологический диагноз ≤ 3 мес.</li>
+                        <li>✓ Информированное согласие</li>
+                    </ul>
+                </div>
+                <div class="tree-card box-exclusion" style="flex: 1; max-width: 500px;">
+                    <h3 style="color: var(--exclusion); font-size: 14px;">ОБЩИЕ КРИТЕРИИ НЕВКЛЮЧЕНИЯ</h3>
+                    <ul style="font-size: 12.5px; text-align: left; padding: 5px 15px 0;">
+                        <li>✗ Рак эндометрия / онкология в анамнезе</li>
+                        <li>✗ Гормональная терапия за 6 мес.</li>
+                        <li>✗ Беременность, лактация</li>
+                        <li>✗ Декомпенсированная патология</li>
+                        <li>✗ Острые/обострение хронических заболеваний</li>
+                        <li>✗ ВМС &lt; 12 мес., операции на матке</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТАБ 3: МАРКЕРЫ -->
+    <div id="tab3" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">КОМПЛЕКС ИЗУЧАЕМЫХ МАРКЕРОВ</span>
+        </div>
+
+        <div class="important-note">
+            <strong>🔬 Концепция исследования:</strong> Поиск маркеров «злокачественного потенциала» гиперплазии путём комбинации <strong>метаболических</strong> и <strong>онкологических</strong> показателей, отражающих разные стороны патогенеза АГЭ при метаболическом синдроме.
+        </div>
+
+        <div class="markers-grid">
+
+            <!-- Метаболические маркеры -->
+            <div class="marker-card group-metabolic">
+                <h3>🧪 HOMA-IR</h3>
+                <p>
+                    <strong>Индекс инсулинорезистентности</strong><br>
+                    Ключевой маркер метаболических нарушений.
+                    Расчётный показатель: глюкоза × инсулин / 22,5
+                </p>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Порог: > 4,0</span>
+            </div>
+
+            <div class="marker-card group-metabolic">
+                <h3>🧪 Глюкоза</h3>
+                <p>
+                    Уровень глюкозы натощак. Базовый показатель углеводного обмена.
+                </p>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">ммоль/л</span>
+            </div>
+
+            <div class="marker-card group-metabolic">
+                <h3>🧪 Инсулин</h3>
+                <p>
+                    Базальный инсулин натощак. Используется для расчёта HOMA-IR.
+                </p>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">мкЕд/мл</span>
+            </div>
+
+            <div class="marker-card group-metabolic">
+                <h3>🧪 Липидный спектр</h3>
+                <p>
+                    Общий холестерин, ЛПНП, ЛПВП, триглицериды. Оценка липидного компонента МС.
+                </p>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">Метаболический</span>
+                <span class="tag" style="background:#e1bee7;color:#6a1b9a;">ммоль/л</span>
+            </div>
+
+            <!-- Воспаление и адипокины -->
+            <div class="marker-card group-inflammation">
+                <h3>🔥 Лептин</h3>
+                <p>
+                    <strong>Гормон жировой ткани.</strong> При гиперлептинемии стимулирует пролиферацию эндометрия.
+                </p>
+                <span class="tag" style="background:#ffccbc;color:#d84315;">Адипокин</span>
+                <span class="tag" style="background:#ffccbc;color:#d84315;">Порог: > 25 нг/мл</span>
+            </div>
+
+            <div class="marker-card group-inflammation">
+                <h3>🔥 Адипонектин</h3>
+                <p>
+                    <strong>Защитный адипокин.</strong> Снижение уровня ассоциировано с инсулинорезистентностью и канцерогенезом.
+                </p>
+                <span class="tag" style="background:#ffccbc;color:#d84315;">Адипокин</span>
+                <span class="tag" style="background:#ffccbc;color:#d84315;">мкг/мл</span>
+            </div>
+
+            <div class="marker-card group-inflammation">
+                <h3>🔥 hs-CRP</h3>
+                <p>
+                    <strong>Высокочувствительный С-реактивный белок.</strong> Маркер системного воспаления низкой интенсивности.
+                </p>
+                <span class="tag" style="background:#ffccbc;color:#d84315;">Воспаление</span>
+                <span class="tag" style="background:#ffccbc;color:#d84315;">мг/л</span>
+            </div>
+
+            <!-- Онкомаркеры -->
+            <div class="marker-card group-oncology">
+                <h3>🎗 HE4</h3>
+                <p>
+                    <strong>Human Epididymis protein 4.</strong> Современный онкомаркер, более специфичный для гинекологической онкопатологии, чем CA-125.
+                </p>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Онкомаркер</span>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">пмоль/л</span>
+            </div>
+
+            <div class="marker-card group-oncology">
+                <h3>🎗 CA-125</h3>
+                <p>
+                    Классический онкомаркер. Низкая специфичность при АГЭ, используется в составе индекса ROMA.
+                </p>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Онкомаркер</span>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Ед/мл</span>
+            </div>
+
+            <div class="marker-card group-oncology">
+                <h3>🎗 Индекс ROMA</h3>
+                <p>
+                    <strong>Risk of Ovarian Malignancy Algorithm.</strong> Расчётный индекс на основе HE4 и CA-125 с учётом менопаузального статуса.
+                </p>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Расчётный</span>
+                <span class="tag" style="background:#f8bbd0;color:#c2185b;">Порог: > 20% (постменопауза)</span>
+            </div>
+
+            <!-- Гормоны -->
+            <div class="marker-card group-hormone">
+                <h3>⚖️ Эстрадиол</h3>
+                <p>
+                    Основной эстроген. Гиперэстрогения — ключевой фактор пролиферации эндометрия.
+                </p>
+                <span class="tag" style="background:#b2dfdb;color:#00695c;">Гормон</span>
+                <span class="tag" style="background:#b2dfdb;color:#00695c;">пг/мл</span>
+            </div>
+
+            <div class="marker-card group-hormone">
+                <h3>⚖️ Тестостерон + ГСПГ → ИСА</h3>
+                <p>
+                    Тестостерон, глобулин, связывающий половые гормоны. Расчёт <strong>индекса свободных андрогенов</strong>.
+                </p>
+                <span class="tag" style="background:#b2dfdb;color:#00695c;">Гормон</span>
+                <span class="tag" style="background:#b2dfdb;color:#00695c;">Расчётный</span>
+            </div>
+
+            <div class="marker-card group-hormone">
+                <h3>⚖️ ФСГ + ЛГ</h3>
+                <p>
+                    Фолликулостимулирующий и лютеинизирующий гормоны. Оценка менопаузального статуса.
+                </p>
+                <span class="tag" style="background:#b2dfdb;color:#00695c;">Гормон</span>
+                <span class="tag" style="background:#b2dfdb;color:#00695c;">мМЕ/мл</span>
+            </div>
+
+            <!-- Антропометрия -->
+            <div class="marker-card" style="background:#fffde7;border-left-color:#f9a825;">
+                <h3 style="color:#f9a825;">📏 Антропометрия</h3>
+                <p>
+                    <strong>Окружность талии (ОТ)</strong> — ключевой компонент МС.<br>
+                    ИМТ, соотношение талия/бёдра.
+                </p>
+                <span class="tag" style="background:#fff9c4;color:#f57f17;">Антропометрия</span>
+                <span class="tag" style="background:#fff9c4;color:#f57f17;">Порог ОТ: > 90 см</span>
+            </div>
+        </div>
+
+        <div style="max-width: 1100px; margin: 40px auto 0;">
+            <h3 style="color: var(--primary); text-align: center; margin-bottom: 20px; font-size: 18px;">
+                🎯 Патогенетическая цепочка
+            </h3>
+            <div style="background: linear-gradient(to right, #fce4ec, #f3e5f5, #fbe9e7, #fff3e0, #ffebee);
+                        padding: 25px; border-radius: 12px; text-align: center; line-height: 2;">
+                <strong style="color: var(--group1);">Абдоминальное ожирение</strong> →
+                <strong style="color: var(--metabolic);">Гиперинсулинемия / Гиперлептинемия</strong> →<br>
+                <strong style="color: var(--inflammation);">Системное воспаление</strong> →
+                <strong style="color: var(--oncology);">Дисрегуляция пролиферации и апоптоза в эндометрии</strong><br>
+                (опосредованно через HE4/ROMA) →
+                <strong style="color: var(--exclusion);">Развитие атипии</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТАБ 4: ПРОГРАММА ИССЛЕДОВАНИЯ -->
+    <div id="tab4" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">ПРОГРАММА ИССЛЕДОВАНИЯ</span>
+        </div>
+
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div class="stage-card">
+                <h3>
+                    <span class="stage-number">1</span>
+                    Формирование групп и базовое обследование
+                </h3>
+                <ul>
+                    <li>Получение информированного добровольного согласия</li>
+                    <li>Стандартизированный сбор анамнеза (гинекологический, эндокринологический, семейный)</li>
+                    <li>Антропометрия: рост, масса тела, ИМТ, окружность талии (ОТ), окружность бёдер (ОБ)</li>
+                    <li>Трансвагинальное УЗИ органов малого таза (толщина М-эхо, структура эндометрия)</li>
+                    <li>Измерение АД, оценка соматического статуса</li>
+                </ul>
+            </div>
+
+            <div class="stage-card">
+                <h3>
+                    <span class="stage-number">2</span>
+                    Лабораторное обследование
+                </h3>
+                <p style="margin-left: 50px; margin-bottom: 10px;">
+                    <em>Забор венозной крови натощак, единая лаборатория для всех образцов</em>
+                </p>
+                <ul>
+                    <li><strong style="color:var(--metabolic);">Метаболический профиль:</strong> глюкоза, инсулин (с расчётом HOMA-IR), липидный спектр (общий ХС, ЛПВП, ЛПНП, ТГ)</li>
+                    <li><strong style="color:var(--inflammation);">Маркеры дисфункции жировой ткани и воспаления:</strong> лептин, адипонектин, hs-CRP</li>
+                    <li><strong style="color:var(--oncology);">Онкомаркеры:</strong> HE4, CA-125 (с расчётом индекса ROMA по соответствующим формулам)</li>
+                    <li><strong style="color:var(--hormone);">Гормональный профиль:</strong> эстрадиол, тестостерон, ГСПГ (с расчётом индекса свободных андрогенов), ФСГ, ЛГ</li>
+                </ul>
+            </div>
+
+            <div class="stage-card">
+                <h3>
+                    <span class="stage-number">3</span>
+                    Статистический анализ и моделирование
+                </h3>
+                <ul>
+                    <li>Проверка данных на нормальность (критерий Шапиро-Уилка)</li>
+                    <li>Сравнение групп: ANOVA / критерий Краскела-Уоллиса (3 группы), пост-хок тесты с поправкой</li>
+                    <li>Оценка корреляций: коэффициент Спирмена / Пирсона</li>
+                    <li>Отбор переменных для многомерной логистической регрессии (пошаговый метод)</li>
+                    <li>Разработка прогностической модели и её <strong>внутренняя валидация (метод bootstrap)</strong></li>
+                    <li>Построение ROC-кривых, расчёт AUC, чувствительности, специфичности, PPV, NPV</li>
+                    <li><strong>Создание номограммы</strong> для расчёта индивидуального риска АГЭ</li>
+                </ul>
+            </div>
+
+            <div class="stage-card">
+                <h3>
+                    <span class="stage-number">4</span>
+                    Анализ результатов, формулировка выводов и внедрение
+                </h3>
+                <ul>
+                    <li>Интерпретация результатов в свете современных представлений о патогенезе АГЭ</li>
+                    <li>Формулировка выводов и практических рекомендаций</li>
+                    <li>Подготовка и публикация научных статей в журналах перечня ВАК и Scopus</li>
+                    <li>Разработка методических рекомендаций</li>
+                    <li><strong>Внедрение калькулятора риска АГЭ в клиническую практику</strong></li>
+                    <li>Защита диссертации</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТАБ 5: СТАТИСТИЧЕСКИЙ АНАЛИЗ -->
+    <div id="tab5" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">ПЛАН СТАТИСТИЧЕСКОГО АНАЛИЗА</span>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stats-card s1">
+                <h3><span class="step-number">1</span>Описательная статистика</h3>
+                <ul>
+                    <li>M ± SD (нормальное распределение)</li>
+                    <li>Me [Q₁; Q₃] (ненормальное распределение)</li>
+                    <li>n, % (категориальные переменные)</li>
+                    <li>Шапиро-Уилка (проверка нормальности)</li>
+                </ul>
+            </div>
+
+            <div class="stats-card s2">
+                <h3><span class="step-number">2</span>Сравнительный анализ 3 групп</h3>
+                <ul>
+                    <li>ANOVA (нормальное распределение)</li>
+                    <li>Критерий Краскела-Уоллиса (ненормальное)</li>
+                    <li>Пост-хок: Тьюки / Данна с поправкой Бонферрони</li>
+                    <li>χ² Пирсона / точный тест Фишера</li>
+                </ul>
+            </div>
+
+            <div class="stats-card s3">
+                <h3><span class="step-number">3</span>Корреляционный анализ</h3>
+                <ul>
+                    <li>Коэффициент Пирсона (r)</li>
+                    <li>Коэффициент Спирмена (ρ)</li>
+                    <li>HOMA-IR ↔ Лептин ↔ hs-CRP</li>
+                    <li>Метаболические маркеры ↔ HE4, ROMA</li>
+                </ul>
+            </div>
+
+            <div class="stats-card s4">
+                <h3><span class="step-number">4</span>Многомерная логистическая регрессия</h3>
+                <ul>
+                    <li>Пошаговый отбор предикторов (forward/backward)</li>
+                    <li>Расчёт OR (отношение шансов) + 95% ДИ</li>
+                    <li>Оценка коэффициентов модели (β)</li>
+                    <li>Тест Хосмера-Лемешова (goodness of fit)</li>
+                </ul>
+            </div>
+
+            <div class="stats-card s5">
+                <h3><span class="step-number">5</span>ROC-анализ</h3>
+                <ul>
+                    <li>Построение ROC-кривых для каждого маркера</li>
+                    <li>AUC (площадь под кривой) с 95% ДИ</li>
+                    <li>Cut-off значения (индекс Юдена)</li>
+                    <li>Se, Sp, PPV, NPV, LR+, LR−</li>
+                </ul>
+            </div>
+
+            <div class="stats-card s6">
+                <h3><span class="step-number">6</span>Внутренняя валидация (Bootstrap)</h3>
+                <ul>
+                    <li>Метод бутстрепа (1000 итераций)</li>
+                    <li>Оценка стабильности модели</li>
+                    <li>Корректировка optimism (overfitting)</li>
+                    <li>Calibration plot (калибровочная кривая)</li>
+                </ul>
+            </div>
+
+            <div class="stats-card s7">
+                <h3><span class="step-number">7</span>Структурное моделирование (SEM)</h3>
+                <ul>
+                    <li>Path analysis (анализ путей)</li>
+                    <li>Подтверждение патогенетической цепочки</li>
+                    <li>Оценка прямых и опосредованных эффектов</li>
+                    <li>Индексы согласия модели (CFI, RMSEA)</li>
+                </ul>
+            </div>
+
+            <div class="stats-card stats-final">
+                <h3>🎯 ПРОГНОСТИЧЕСКАЯ МОДЕЛЬ И НОМОГРАММА</h3>
+                <p style="font-size: 13px; color: var(--text-medium); margin-top: 8px;">
+                    <strong>Целевые показатели качества модели:</strong><br>
+                    AUC &gt; 0,85 на обучающей выборке • AUC &gt; 0,80 при внутренней валидации
+                </p>
+                <div class="formula-box" style="margin-top: 12px; text-align: left;">
+                    <strong>Пример уравнения логистической регрессии:</strong><br><br>
+                    Логарифм шансов (АГЭ) = 1,2 + 0,8 × (HOMA-IR) + 0,05 × (Лептин)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 0,9 × (ROMA_статус) − 0,03 × (Адипонектин)
+                </div>
+            </div>
+
+            <div class="stats-card stats-software">
+                <h3 style="justify-content: center; color: #455a64;">💻 Программное обеспечение</h3>
+                <p style="font-size: 14px; color: var(--text-medium);">
+                    <strong>IBM SPSS Statistics 26.0</strong> &nbsp;•&nbsp;
+                    <strong>R (пакеты: pROC, rms, ResourceSelection)</strong> &nbsp;•&nbsp;
+                    <strong>MedCalc</strong><br>
+                    Уровень значимости: <strong>p &lt; 0,05</strong> &nbsp;•&nbsp;
+                    Поправка Бонферрони при множественных сравнениях
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТАБ 6: КЛИНИЧЕСКИЙ АЛГОРИТМ -->
+    <div id="tab6" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">ДИФФЕРЕНЦИРОВАННЫЙ КЛИНИЧЕСКИЙ АЛГОРИТМ</span>
+        </div>
+
+        <div class="important-note">
+            <strong>🎯 Принцип персонализации:</strong> На основе расчётного индивидуального индекса риска АГЭ пациентка относится к одной из трёх групп с соответствующей тактикой ведения. Это позволит избежать <strong>двух крайностей</strong>: неоправданно радикального лечения у одних женщин и опасной отсрочки операции у других.
+        </div>
+
+        <div style="max-width: 1000px; margin: 30px auto;">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px; font-size: 18px;">
+                Стратификация риска и тактика ведения
+            </h3>
+
+            <div class="algorithm-card low-risk">
+                <h3>
+                    🟢 НИЗКИЙ РИСК
+                    <span class="risk-percent" style="background:#c8e6c9;color:#1b5e20;">&lt; 5%</span>
+                </h3>
+                <p>
+                    <strong>Тактика:</strong> Консервативная гормональная терапия под контролем
+                </p>
+                <ul style="margin-top: 10px; padding-left: 20px; font-size: 13px;">
+                    <li>Гормональная терапия (гестагены, ВМС с левоноргестрелом)</li>
+                    <li>Динамическое наблюдение каждые 3–6 месяцев</li>
+                    <li>Контрольное УЗИ органов малого таза</li>
+                    <li>Коррекция метаболических нарушений (снижение веса, метформин при показаниях)</li>
+                    <li><strong>Сохранение репродуктивного потенциала</strong></li>
+                </ul>
+            </div>
+
+            <div class="algorithm-card medium-risk">
+                <h3>
+                    🟡 СРЕДНИЙ РИСК
+                    <span class="risk-percent" style="background:#ffe082;color:#e65100;">5 – 30%</span>
+                </h3>
+                <p>
+                    <strong>Тактика:</strong> Обязательная гистероскопия с прицельной биопсией
+                </p>
+                <ul style="margin-top: 10px; padding-left: 20px; font-size: 13px;">
+                    <li>Диагностическая гистероскопия с прицельной биопсией</li>
+                    <li>Морфологическое исследование биоптатов</li>
+                    <li>В зависимости от результата — выбор тактики:
+                        <ul style="padding-left: 20px; margin-top: 5px;">
+                            <li>Подтверждённая ГЭ без атипии → консервативное лечение</li>
+                            <li>Выявленная АГЭ → переход к высокому риску</li>
+                        </ul>
+                    </li>
+                    <li>Динамическое наблюдение каждые 3 месяца</li>
+                </ul>
+            </div>
+
+            <div class="algorithm-card high-risk">
+                <h3>
+                    🔴 ВЫСОКИЙ РИСК
+                    <span class="risk-percent" style="background:#ffcdd2;color:#b71c1c;">&gt; 30%</span>
+                </h3>
+                <p>
+                    <strong>Тактика:</strong> Приоритет радикального хирургического лечения
+                </p>
+                <ul style="margin-top: 10px; padding-left: 20px; font-size: 13px;">
+                    <li><strong>Гистерэктомия</strong> (тотальная или с придатками — по показаниям)</li>
+                    <li>Интраоперационное гистологическое исследование (срочное)</li>
+                    <li>При выявлении инвазии — расширение объёма операции</li>
+                    <li>Консультация онколога-гинеколога</li>
+                    <li>Послеоперационное наблюдение, коррекция МС</li>
+                    <li><strong>Онкологическая безопасность приоритетна</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; margin: 40px auto 0; padding: 25px;
+                    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+                    border-radius: 12px; text-align: center;">
+            <h3 style="color: var(--result); font-size: 18px; margin-bottom: 12px;">
+                🎯 ПРАКТИЧЕСКАЯ ЦЕННОСТЬ АЛГОРИТМА
+            </h3>
+            <p style="color: var(--text-dark); font-size: 14px; line-height: 1.7;">
+                Дооперационная стратификация риска АГЭ позволит обоснованно выбирать между<br>
+                <strong>агрессивной диагностической тактикой</strong> (гистероскопия с резектоскопией) и<br>
+                <strong>выжидательно-консервативной</strong> (гормональная терапия под контролем).<br><br>
+                Это напрямую способствует <strong>повышению онкологической безопасности</strong> и<br>
+                <strong>сохранению репродуктивного потенциала</strong> у соответствующих групп пациенток.
+            </p>
+        </div>
+    </div>
+
+    <!-- ТАБ 7: ДИАГРАММА ГАНТА -->
+    <div id="tab7" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">ВРЕМЕННАЯ ШКАЛА ИССЛЕДОВАНИЯ</span>
+        </div>
+
+        <div class="gantt-container">
+            <div class="gantt-chart" id="ganttChart"></div>
+        </div>
+    </div>
+
+    <!-- ТАБ 8: ИНФОГРАФИКА -->
+    <div id="tab8" class="tab-content">
+        <div class="section-title-wrap">
+            <span class="section-title">КЛЮЧЕВЫЕ ПАРАМЕТРЫ ИССЛЕДОВАНИЯ</span>
+        </div>
+
+        <div class="infographic-grid">
+            <div class="info-card c1">
+                <div class="big-number">135</div>
+                <div class="info-label">женщин с МС</div>
+            </div>
+            <div class="info-card c2">
+                <div class="big-number">3</div>
+                <div class="info-label">клинические группы<br>(по 45 человек)</div>
+            </div>
+            <div class="info-card c3">
+                <div class="big-number">14+</div>
+                <div class="info-label">биохимических и<br>гормональных маркеров</div>
+            </div>
+            <div class="info-card c4">
+                <div class="big-number">35–55</div>
+                <div class="info-label">лет — возраст<br>пациенток</div>
+            </div>
+            <div class="info-card c5">
+                <div class="big-number">&gt;0,85</div>
+                <div class="info-label">целевой AUC<br>прогностической модели</div>
+            </div>
+            <div class="info-card c6">
+                <div class="big-number">3</div>
+                <div class="info-label">уровня риска<br>в алгоритме ведения</div>
+            </div>
+        </div>
+
+        <div style="max-width: 1200px; margin: 40px auto 0;">
+            <div class="section-title-wrap">
+                <span class="section-title" style="font-size: 18px;">ОЖИДАЕМЫЕ РЕЗУЛЬТАТЫ</span>
+            </div>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                <div class="stats-card s4" style="border-left-width: 6px;">
+                    <h3><span class="step-number">1</span>Метаболические различия</h3>
+                    <ul>
+                        <li>У женщин с МС + АГЭ HOMA-IR, лептин, hs-CRP и индекс ROMA <strong>статистически значимо выше</strong></li>
+                        <li>Уровень адипонектина — <strong>ниже</strong></li>
+                        <li>Доказательство патогенетической неоднородности</li>
+                    </ul>
+                </div>
+
+                <div class="stats-card s5" style="border-left-width: 6px;">
+                    <h3><span class="step-number">2</span>Независимые предикторы</h3>
+                    <ul>
+                        <li>HOMA-IR &gt; 4,0</li>
+                        <li>Уровень лептина &gt; 25 нг/мл</li>
+                        <li>Индекс ROMA &gt; 20% (для постменопаузы)</li>
+                        <li>Окружность талии &gt; 90 см</li>
+                    </ul>
+                </div>
+
+                <div class="stats-card s6" style="border-left-width: 6px;">
+                    <h3><span class="step-number">3</span>Прогностическая модель</h3>
+                    <ul>
+                        <li>Математически обоснованная номограмма</li>
+                        <li>AUC &gt; 0,85 (обучающая выборка)</li>
+                        <li>AUC &gt; 0,80 (внутренняя валидация)</li>
+                        <li>Высокая дискриминационная способность</li>
+                    </ul>
+                </div>
+
+                <div class="stats-card stats-final" style="border-left-width: 6px;">
+                    <h3>🎯 КЛИНИЧЕСКИЙ КАЛЬКУЛЯТОР РИСКА АГЭ</h3>
+                    <p style="font-size: 14px; color: var(--text-medium); margin-top: 8px;">
+                        Внедрение в практику инструмента для расчёта <strong>индивидуального риска</strong> атипической гиперплазии эндометрия<br>
+                        у женщин с метаболическим синдромом<br><br>
+                        <strong>Персонализированный подход к диагностике и лечению</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        ФГАОУ ВО «Российский университет дружбы народов имени Патриса Лумумбы»<br>
+        Медицинский институт &nbsp;•&nbsp;
+        Кафедра акушерства и гинекологии с курсом перинатологии<br>
+        Аспирант: Кравченко В.А. &nbsp;•&nbsp;
+        Научный руководитель: д.м.н., профессор Ордиянц И.М.<br>
+        Специальность: 3.1.4 — акушерство и гинекология
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Печать / PDF</button>
+
+    <script>
+        function openTab(evt, tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function buildGantt() {
+            const container = document.getElementById('ganttChart');
+            const totalMonths = 36;
+
+            const tasks = [
+                { name: 'Литературный обзор', start: 0, dur: 12, color: '#9c27b0' },
+                { name: 'Разработка протокола, этическая экспертиза', start: 0, dur: 4, color: '#7b1fa2' },
+                { name: 'Этап 1: формирование групп, базовое обследование', start: 3, dur: 18, color: '#c2185b' },
+                { name: 'Этап 2: лабораторные исследования', start: 4, dur: 20, color: '#e91e63' },
+                { name: 'Сбор клинико-анамнестических данных', start: 3, dur: 21, color: '#f06292' },
+                { name: 'Морфологическое исследование биоптатов', start: 4, dur: 20, color: '#f8bbd0' },
+                { name: 'Этап 3: статистический анализ', start: 20, dur: 12, color: '#3f51b5' },
+                { name: 'Многомерная логистическая регрессия', start: 22, dur: 10, color: '#5c6bc0' },
+                { name: 'Bootstrap-валидация модели', start: 26, dur: 8, color: '#7986cb' },
+                { name: 'Построение номограммы', start: 28, dur: 6, color: '#9fa8da' },
+                { name: 'Этап 4: внедрение результатов', start: 30, dur: 6, color: '#00838f' },
+                { name: 'Публикации в журналах ВАК / Scopus', start: 18, dur: 16, color: '#ff8a65' },
+                { name: 'Методические рекомендации', start: 30, dur: 5, color: '#a1887f' },
+                { name: 'Оформление диссертации', start: 30, dur: 6, color: '#ff7043' },
+                { name: 'Апробация и защита', start: 34, dur: 2, color: '#66bb6a' },
+            ];
+
+            const yearDiv = document.createElement('div');
+            yearDiv.className = 'gantt-year-labels';
+            yearDiv.innerHTML = `
+                <div></div>
+                <div class="gantt-year">1-й год</div>
+                <div class="gantt-year">2-й год</div>
+                <div class="gantt-year">3-й год</div>
+            `;
+            container.appendChild(yearDiv);
+
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'gantt-header';
+            headerDiv.innerHTML = '<div class="gantt-header-cell" style="text-align: left; padding-left: 12px; font-weight: 700;">Этап</div>';
+            for (let i = 0; i < totalMonths; i++) {
+                const monthLabel = (i % 12) + 1;
+                headerDiv.innerHTML += `<div class="gantt-header-cell">${monthLabel}</div>`;
+            }
+            container.appendChild(headerDiv);
+
+            tasks.forEach(task => {
+                const row = document.createElement('div');
+                row.className = 'gantt-row';
+
+                const label = document.createElement('div');
+                label.className = 'gantt-label';
+                label.textContent = task.name;
+
+                const barArea = document.createElement('div');
+                barArea.className = 'gantt-bar-area';
+
+                for (let i = 0; i < totalMonths; i++) {
+                    const gridLine = document.createElement('div');
+                    gridLine.className = 'gantt-grid-line' + (i % 12 === 0 ? ' gantt-grid-line-year' : '');
+                    gridLine.style.left = `${(i / totalMonths) * 100}%`;
+                    barArea.appendChild(gridLine);
+                }
+
+                const bar = document.createElement('div');
+                bar.className = 'gantt-bar';
+                bar.style.left = `${(task.start / totalMonths) * 100}%`;
+                bar.style.width = `${(task.dur / totalMonths) * 100}%`;
+                bar.style.background = task.color;
+                bar.title = `${task.name}: ${task.dur} мес.`;
+
+                barArea.appendChild(bar);
+                row.appendChild(label);
+                row.appendChild(barArea);
+                container.appendChild(row);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            buildGantt();
+        });
+    </script>
+
+</body>
+</html>
